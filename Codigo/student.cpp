@@ -6,18 +6,34 @@
 Student::Student() {
     NULL;
 }
+Student::Student(int StudentCode, string StudentName, map<string,string> Courses){
+    this->StudentCode=StudentCode;
+    this->StudentName=StudentName;
+    this->Courses=Courses;
+}
+/*
 Student::Student(int StudentCode, string StudentName, vector<string> UcCode, vector<string> ClassCode){
     this->StudentCode=StudentCode;
     this->StudentName=StudentName;
     this->UcCode=UcCode;
     this->ClassCode=ClassCode;
-}
+}*/
 int Student::getstudentCode(){
     return StudentCode;
 }
 string Student::getStudentName(){
     return StudentName;
 }
+map<string,string> Student::getCourses(){
+    return Courses;
+}
+string Student::getClassCode(string UcCode) {
+    return Courses[UcCode];
+}
+void Student::setClasses(map<string,string> Courses){
+    this->Courses=Courses;
+}
+/*
 vector<string> Student::getUcCode(){
     return UcCode;
 }
@@ -46,6 +62,8 @@ void Student::setIndividual_ClassCode(string UcCode,string ClassCode){
         }
         pos++;
     }
+
 }
+ */
 
 

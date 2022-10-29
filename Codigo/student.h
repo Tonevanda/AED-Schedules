@@ -15,15 +15,18 @@ private:
     int StudentCode;
     string StudentName;
     map<string,string> Courses;
-    vector<string> UcCode;
-    vector<string> ClassCode;
+    //vector<string> UcCode;
+    //vector<string> ClassCode;
 public:
     Student();
-    Student(int StudentCode, string StudentName, vector<string> UcCode, vector<string> ClassCode);
+    Student(int StudentCode, string StudentName, map<string,string> Courses);
+    //Student(int StudentCode, string StudentName, vector<string> UcCode, vector<string> ClassCode);
     int getstudentCode();
     string getStudentName();
+    map<string,string> getCourses();
     vector<string> getUcCode();
-    vector<string> getClassCode();
+    string getClassCode(string UcCode);
+    void setClasses(map<string,string> Courses);
     void setUcCode_ClassCode(vector<string> UcCode,vector<string> ClassCode);
     void setIndividual_UcCode_ClassCode(string sUcCode,string eUcCode,string ClassCode);
     void setIndividual_ClassCode(string UcCode,string ClassCode);
