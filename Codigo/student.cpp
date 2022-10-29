@@ -3,6 +3,9 @@
 //
 
 #include "student.h"
+Student::Student() {
+    NULL;
+}
 Student::Student(int StudentCode, string StudentName, vector<string> UcCode, vector<string> ClassCode){
     this->StudentCode=StudentCode;
     this->StudentName=StudentName;
@@ -44,3 +47,5 @@ void Student::setIndividual_ClassCode(string UcCode,string ClassCode){
         pos++;
     }
 }
+
+

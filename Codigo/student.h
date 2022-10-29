@@ -18,6 +18,7 @@ private:
     vector<string> UcCode;
     vector<string> ClassCode;
 public:
+    Student();
     Student(int StudentCode, string StudentName, vector<string> UcCode, vector<string> ClassCode);
     int getstudentCode();
     string getStudentName();
@@ -26,6 +27,8 @@ public:
     void setUcCode_ClassCode(vector<string> UcCode,vector<string> ClassCode);
     void setIndividual_UcCode_ClassCode(string sUcCode,string eUcCode,string ClassCode);
     void setIndividual_ClassCode(string UcCode,string ClassCode);
+
+
 };
 
 

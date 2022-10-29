@@ -127,7 +127,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "binaryTree.h",
+			"path" : "binarySearchTree.h",
 			"sourceGroupIndex" : 1
 		}
 	],
