@@ -4,7 +4,7 @@
 
 #include <string>
 #include <vector>
-
+#include <map>
 using namespace std;
 #ifndef CODIGO_STUDENT_H
 #define CODIGO_STUDENT_H
@@ -14,6 +14,7 @@ class Student{
 private:
     int StudentCode;
     string StudentName;
+    map<string,string> Courses;
     vector<string> UcCode;
     vector<string> ClassCode;
 public:
