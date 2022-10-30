@@ -3,3 +3,10 @@
 //
 
 #include "Slot.h"
+
+Slot::Slot(string Diadasemana, string HorarioInicio, string HorarioFim, string Tipo){
+    this->Diadasemana = Diadasemana;
+    this->HorarioInicio = HorarioInicio;
+    this->HorarioFim = HorarioFim;
+    this->Tipo = Tipo;
+}

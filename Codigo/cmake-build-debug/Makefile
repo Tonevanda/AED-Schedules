@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "D:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "D:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo
+CMAKE_SOURCE_DIR = D:\AED\TrabalhoAED\Codigo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug
+CMAKE_BINARY_DIR = D:\AED\TrabalhoAED\Codigo\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-buil
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles D:\AED\TrabalhoAED\Codigo\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,102 @@ Codigo: cmake_check_build_system
 Codigo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/build
 .PHONY : Codigo/fast
+
+BSTudents.obj: BSTudents.cpp.obj
+.PHONY : BSTudents.obj
+
+# target to build an object file
+BSTudents.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/BSTudents.cpp.obj
+.PHONY : BSTudents.cpp.obj
+
+BSTudents.i: BSTudents.cpp.i
+.PHONY : BSTudents.i
+
+# target to preprocess a source file
+BSTudents.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/BSTudents.cpp.i
+.PHONY : BSTudents.cpp.i
+
+BSTudents.s: BSTudents.cpp.s
+.PHONY : BSTudents.s
+
+# target to generate assembly for a file
+BSTudents.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/BSTudents.cpp.s
+.PHONY : BSTudents.cpp.s
+
+Slot.obj: Slot.cpp.obj
+.PHONY : Slot.obj
+
+# target to build an object file
+Slot.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/Slot.cpp.obj
+.PHONY : Slot.cpp.obj
+
+Slot.i: Slot.cpp.i
+.PHONY : Slot.i
+
+# target to preprocess a source file
+Slot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/Slot.cpp.i
+.PHONY : Slot.cpp.i
+
+Slot.s: Slot.cpp.s
+.PHONY : Slot.s
+
+# target to generate assembly for a file
+Slot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/Slot.cpp.s
+.PHONY : Slot.cpp.s
+
+TurmaH.obj: TurmaH.cpp.obj
+.PHONY : TurmaH.obj
+
+# target to build an object file
+TurmaH.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/TurmaH.cpp.obj
+.PHONY : TurmaH.cpp.obj
+
+TurmaH.i: TurmaH.cpp.i
+.PHONY : TurmaH.i
+
+# target to preprocess a source file
+TurmaH.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/TurmaH.cpp.i
+.PHONY : TurmaH.cpp.i
+
+TurmaH.s: TurmaH.cpp.s
+.PHONY : TurmaH.s
+
+# target to generate assembly for a file
+TurmaH.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/TurmaH.cpp.s
+.PHONY : TurmaH.cpp.s
+
+UCTurma.obj: UCTurma.cpp.obj
+.PHONY : UCTurma.obj
+
+# target to build an object file
+UCTurma.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/UCTurma.cpp.obj
+.PHONY : UCTurma.cpp.obj
+
+UCTurma.i: UCTurma.cpp.i
+.PHONY : UCTurma.i
+
+# target to preprocess a source file
+UCTurma.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/UCTurma.cpp.i
+.PHONY : UCTurma.cpp.i
+
+UCTurma.s: UCTurma.cpp.s
+.PHONY : UCTurma.s
+
+# target to generate assembly for a file
+UCTurma.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/UCTurma.cpp.s
+.PHONY : UCTurma.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -185,6 +281,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Codigo
+	@echo ... BSTudents.obj
+	@echo ... BSTudents.i
+	@echo ... BSTudents.s
+	@echo ... Slot.obj
+	@echo ... Slot.i
+	@echo ... Slot.s
+	@echo ... TurmaH.obj
+	@echo ... TurmaH.i
+	@echo ... TurmaH.s
+	@echo ... UCTurma.obj
+	@echo ... UCTurma.i
+	@echo ... UCTurma.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

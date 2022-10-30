@@ -14,7 +14,8 @@ private:
     string HorarioFim;
     string Tipo;
 public:
-
+    Slot() {};
+    Slot(string Diadasemana, string HorarioInicio, string HorarioFim, string Tipo);
 };
 
 

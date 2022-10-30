@@ -5,10 +5,11 @@
 #include <typeinfo>
 #include "student.h"
 #include "binarySearchTree.h"
+#include "BSTudents.h"
 
 void print(vector<Student> Students){
     for(auto it:Students){
-        cout<<it.getstudentCode()<<" "<<it.getStudentName()<<" ";
+        cout<<it.getStudentCode()<<" "<<it.getStudentName()<<" ";
         for (const auto& [UcCode, ClassCode] : it.getCourses()){
             cout << UcCode << " " << ClassCode << " ";
         }
@@ -17,6 +18,9 @@ void print(vector<Student> Students){
 }
 
 int main() {
+    BSTudents students = BSTudents(); // inicializa BST de students
+    students.insertStudents(); // insere todos os students
+
     int input;
     cout<<"Input Student Id:\n";
     while (!(cin>>input)) {
@@ -35,31 +39,7 @@ int main() {
     switch (input) {
 
         case 1:
-            vector<Student> Students;
-            BST<Student> bst = BST<Student>(Student());
-            ifstream fout;
-            fout.open("../students_classes.csv");
-            string tempstream,StudentCode,StudentName,UcCode,ClassCode;
-            getline (fout, tempstream);
-            while (getline (fout, tempstream)) {
-                stringstream it_stream(tempstream);
-                getline(it_stream,StudentCode,',');
-                getline(it_stream,StudentName,',');
-                getline(it_stream,UcCode,',');
-                getline(it_stream,ClassCode,'\r');
-                int intStudentCode=stoi(StudentCode, nullptr,10);
-                if(!Students.empty() && Students.back().getstudentCode()==intStudentCode){
-                    map<string,string> tempCourses=Students.back().getCourses();
-                    tempCourses[UcCode]=ClassCode;
-                    Students.back().setClasses(tempCourses);
-                }
-                else{
-                    map<string,string> tempCourses{{UcCode, ClassCode}};
-                    Students.push_back(Student(intStudentCode,StudentName,tempCourses));
-                }
-            }
-            print(Students);
-            fout.close();
+            print(students);
             break;
     }
 
