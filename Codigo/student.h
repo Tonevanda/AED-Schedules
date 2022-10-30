@@ -14,13 +14,10 @@ class Student{
 private:
     int StudentCode;
     string StudentName;
-    map<string,string> Courses;
-    //vector<string> UcCode;
-    //vector<string> ClassCode;
+    map<string,string> Courses;  //(UcCode,ClassCode)
 public:
     Student();
     Student(int StudentCode, string StudentName, map<string,string> Courses);
-    //Student(int StudentCode, string StudentName, vector<string> UcCode, vector<string> ClassCode);
     int getstudentCode();
     string getStudentName();
     map<string,string> getCourses();

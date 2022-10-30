@@ -1,3 +1,3 @@
-/Users/tonevanda/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/Codigo.dir
-/Users/tonevanda/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/tonevanda/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/Codigo.dir
+C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -11,13 +11,6 @@ Student::Student(int StudentCode, string StudentName, map<string,string> Courses
     this->StudentName=StudentName;
     this->Courses=Courses;
 }
-/*
-Student::Student(int StudentCode, string StudentName, vector<string> UcCode, vector<string> ClassCode){
-    this->StudentCode=StudentCode;
-    this->StudentName=StudentName;
-    this->UcCode=UcCode;
-    this->ClassCode=ClassCode;
-}*/
 int Student::getstudentCode(){
     return StudentCode;
 }
