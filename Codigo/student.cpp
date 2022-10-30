@@ -64,6 +64,20 @@ void Student::setIndividual_ClassCode(string UcCode,string ClassCode){
     }
 
 }
- */
+*/
 
+bool Student::operator<(const Student &s2) const {
+    return StudentCode < s2.StudentCode;
+}
 
+bool Student::operator>(const Student &s2) const {
+    return StudentCode > s2.StudentCode;
+}
+
+bool Student::operator==(const Student &s2) const {
+    return StudentCode == s2.StudentCode;
+}
+
+bool Student::operator!=(const Student &s2) const {
+    return StudentCode != s2.StudentCode;
+}

@@ -17,7 +17,6 @@ void print(vector<Student> Students){
 int main() {
     vector<Student> Students;
     BST<Student> bst = BST<Student>(Student());
-    Student();
     ifstream fout;
     fout.open("../students_classes.csv");
     string tempstream,StudentCode,StudentName,UcCode,ClassCode;

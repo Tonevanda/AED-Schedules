@@ -30,8 +30,10 @@ public:
     void setUcCode_ClassCode(vector<string> UcCode,vector<string> ClassCode);
     void setIndividual_UcCode_ClassCode(string sUcCode,string eUcCode,string ClassCode);
     void setIndividual_ClassCode(string UcCode,string ClassCode);
-
-
+    bool operator<(const Student& s2) const;
+    bool operator>(const Student& s2) const;
+    bool operator==(const Student& s2) const;
+    bool operator!=(const Student& s2) const;
 };
 
 
