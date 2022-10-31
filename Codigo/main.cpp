@@ -40,6 +40,9 @@ int main() {
         case 3:
             h.showUCTandHorario();
             break;
+        case 4:
+            students.showStudentHorario(202071557, h.getHorarios());
+            break;
     }
 
 

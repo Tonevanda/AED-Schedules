@@ -18,10 +18,12 @@ public:
     string getStudentName(int id) const;
     BST<UCTurma> getStudentUCTurma(int id) const;
     string getStudentUCs(int id) const;
+    string getStudentUCTs(int id) const;
 
     void showStudentUCs(int id);
     void showStudentClasses(int id);
     void showStudentUCTurma(int id);
+    void showStudentHorario(int id, BST<TurmaH> h);
 
     void showAllStudentCodes();
     void showAllStudentNames();

@@ -13,6 +13,9 @@ private:
     BST<TurmaH>horarios = BST<TurmaH>(TurmaH());
 public:
     GestaoHor() {};
+
+    BST<TurmaH> getHorarios() const;
+
     void insertSchedule();
 
     void showUCTHorario(string UcCode, string ClassCode);

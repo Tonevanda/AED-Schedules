@@ -59,6 +59,20 @@ string BSTudents::getStudentUCs(int id) const{
     return out.str();
 }
 
+string BSTudents::getStudentUCTs(int id) const{
+    Student student = Student(id, "");
+    student = students.find(student);
+    BST<UCTurma> UCT = student.getCourses();
+    ostringstream out;
+
+    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
+    while(!it.isAtEnd()){
+        out << it.retrieve().getUC() << "," << it.retrieve().getTurma() << ",";
+        it.advance();
+    }
+    return out.str();
+}
+
 void BSTudents::showStudentUCs(int id) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -93,6 +107,22 @@ void BSTudents::showStudentUCTurma(int id) {
         cout << it.retrieve().getUC() << " " << it.retrieve().getTurma() << " ";
         it.advance();
     }
+}
+
+void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
+    Student student = Student(id, "");
+    student = students.find(student);
+    BST<UCTurma> uct = student.getCourses();
+    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma>(uct);
+    while(!it.isAtEnd()){
+        TurmaH hor = TurmaH(it.retrieve().getUC(), it.retrieve().getTurma());
+        TurmaH temp = h.find(hor);
+        cout << it.retrieve().getUC() << ", " << it.retrieve().getTurma() << ": \n";
+        temp.showHorario();
+        cout << "\n";
+        it.advance();
+    }
+
 }
 
 void BSTudents::showAllStudentCodes() {

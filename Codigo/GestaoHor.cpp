@@ -44,6 +44,10 @@ void GestaoHor::insertSchedule() {
     fout.close();
 }
 
+BST<TurmaH> GestaoHor::getHorarios() const{
+    return horarios;
+}
+
 void GestaoHor::showUCTHorario(string UcCode, string ClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);
     turma = horarios.find(turma);
