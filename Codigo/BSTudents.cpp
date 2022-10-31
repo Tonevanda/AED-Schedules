@@ -30,6 +30,31 @@ void BSTudents::insertStudents() {
     fout.close();
 }
 
-void BSTudents::showAllStudents() {
+string BSTudents::getStudentName(int id) {
+    Student s = Student(id, "");
+    return students.find(s).getStudentName();
+}
 
+void BSTudents::showAllStudentCodes() {
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    while(!it.isAtEnd()){
+        cout << it.retrieve().getStudentCode() << "\n";
+        it.advance();
+    }
+}
+
+void BSTudents::showAllStudentNames() {
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    while(!it.isAtEnd()){
+        cout << it.retrieve().getStudentName() << "\n";
+        it.advance();
+    }
+}
+
+void BSTudents::showAllStudents() {
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    while(!it.isAtEnd()){
+        cout << it.retrieve().getStudentCode() << it.retrieve().getStudentName() << "\n";
+        it.advance();
+    }
 }

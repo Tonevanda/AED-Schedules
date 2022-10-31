@@ -7,16 +7,6 @@
 #include "binarySearchTree.h"
 #include "BSTudents.h"
 
-void print(vector<Student> Students){
-    for(auto it:Students){
-        cout<<it.getStudentCode()<<" "<<it.getStudentName()<<" ";
-        for (const auto& [UcCode, ClassCode] : it.getCourses()){
-            cout << UcCode << " " << ClassCode << " ";
-        }
-        cout<<'\n';
-    }
-}
-
 int main() {
     BSTudents students = BSTudents(); // inicializa BST de students
     students.insertStudents(); // insere todos os students
@@ -39,7 +29,10 @@ int main() {
     switch (input) {
 
         case 1:
-            print(students);
+            students.showAllStudents();
+            break;
+        case 2:
+            cout<<students.getStudentName(202031607);
             break;
     }
 

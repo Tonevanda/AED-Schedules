@@ -20,3 +20,19 @@ string UCTurma::getTurma() const {
     return codTurma;
 }
 
+bool UCTurma::operator<(const UCTurma &s2) const {
+    return codUC < s2.codUC;
+}
+
+bool UCTurma::operator>(const UCTurma &s2) const {
+    return codUC > s2.codUC;
+}
+
+bool UCTurma::operator==(const UCTurma &s2) const {
+    return codUC == s2.codUC;
+}
+
+bool UCTurma::operator!=(const UCTurma &s2) const {
+    return codUC != s2.codUC;
+}
+

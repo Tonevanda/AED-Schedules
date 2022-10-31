@@ -13,6 +13,11 @@ private:
 public:
     BSTudents() {NULL;};
     void insertStudents();
+
+    string getStudentName(int id);
+
+    void showAllStudentCodes();
+    void showAllStudentNames();
     void showAllStudents();
 };
 

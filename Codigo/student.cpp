@@ -3,6 +3,7 @@
 //
 
 #include "student.h"
+#include "binarySearchTree.h"
 
 Student::Student() {
     NULL;
@@ -42,46 +43,3 @@ bool Student::operator==(const Student &s2) const {
 bool Student::operator!=(const Student &s2) const {
     return StudentCode != s2.StudentCode;
 }
-
-/*
-map<string,string> Student::getCourses(){
-    return Courses;
-}
-string Student::getClassCode(string UcCode) {
-    return Courses[UcCode];
-}
-void Student::setClasses(map<string,string> Courses){
-    this->Courses=Courses;
-}
-
-vector<string> Student::getUcCode(){
-    return UcCode;
-}
-vector<string> Student::getClassCode(){
-    return ClassCode;
-}
-void Student::setUcCode_ClassCode(vector<string> UcCode,vector<string> ClassCode){
-    this->UcCode=UcCode;
-    this->ClassCode=ClassCode;
-}
-void Student::setIndividual_UcCode_ClassCode(string sUcCode,string eUcCode,string ClassCode){
-    int pos=0;
-    for(string indent:this->UcCode){
-        if(indent==sUcCode){
-            indent=eUcCode;
-            this->ClassCode[pos]=ClassCode;
-        }
-        pos++;
-    }
-}
-void Student::setIndividual_ClassCode(string UcCode,string ClassCode){
-    int pos=0;
-    for(string indent:this->UcCode){
-        if(indent==UcCode){
-            this->ClassCode[pos]=ClassCode;
-        }
-        pos++;
-    }
-
-}
-*/
