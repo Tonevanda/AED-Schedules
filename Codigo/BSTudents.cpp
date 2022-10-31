@@ -18,9 +18,12 @@ void BSTudents::insertStudents() {
         int intStudentCode=stoi(StudentCode, nullptr,10);
         Student student = Student(intStudentCode,StudentName);
         UCTurma ucturma = UCTurma(UcCode, ClassCode);
+        Student test = students.find(student);
 
-        if(!students.isEmpty() && student == students.find(student)){
-            student.addCourse(ucturma);
+        if(!students.isEmpty() && student == test){
+            students.remove(test);
+            test.addCourse(ucturma);
+            students.insert(test);
         }
         else{
             student.addCourse(ucturma); // inserir UC e Turma no student
@@ -30,9 +33,51 @@ void BSTudents::insertStudents() {
     fout.close();
 }
 
-string BSTudents::getStudentName(int id) {
-    Student s = Student(id, "");
-    return students.find(s).getStudentName();
+string BSTudents::getStudentName(int id) const {
+    Student student = Student(id, "");
+    return students.find(student).getStudentName();
+}
+
+BST<UCTurma> BSTudents::getStudentUCTurma(int id) const {
+    Student student = Student(id, "");
+    student = students.find(student);
+    return student.getCourses();
+}
+
+void BSTudents::showStudentUCs(int id) {
+    Student student = Student(id, "");
+    student = students.find(student);
+    BST<UCTurma> UCT = student.getCourses();
+
+    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
+    while(!it.isAtEnd()){
+        cout << it.retrieve().getUC() << "\n";
+        it.advance();
+    }
+}
+
+void BSTudents::showStudentClasses(int id) {
+    Student student = Student(id, "");
+    student = students.find(student);
+    BST<UCTurma> UCT = student.getCourses();
+
+    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
+    while(!it.isAtEnd()){
+        cout << it.retrieve().getTurma() << "\n";
+        it.advance();
+    }
+}
+
+void BSTudents::showStudentUCTurma(int id) {
+    Student student = Student(id, "");
+    student = students.find(student);
+    BST<UCTurma> UCT = student.getCourses();
+
+    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
+    while(!it.isAtEnd()){
+        cout << it.retrieve().getUC() << " " << it.retrieve().getTurma() << " ";
+        it.advance();
+    }
 }
 
 void BSTudents::showAllStudentCodes() {
@@ -54,7 +99,11 @@ void BSTudents::showAllStudentNames() {
 void BSTudents::showAllStudents() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
-        cout << it.retrieve().getStudentCode() << it.retrieve().getStudentName() << "\n";
+        int id = it.retrieve().getStudentCode();
+        BST<UCTurma> UCT = BST<UCTurma> (it.retrieve().getCourses());
+        cout << id << " "  << it.retrieve().getStudentName() << " ";
+        showStudentUCTurma(id);
+        cout << "\n";
         it.advance();
     }
 }

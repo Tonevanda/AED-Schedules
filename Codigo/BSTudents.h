@@ -14,10 +14,17 @@ public:
     BSTudents() {NULL;};
     void insertStudents();
 
-    string getStudentName(int id);
+    string getStudentName(int id) const;
+    BST<UCTurma> getStudentUCTurma(int id) const;
+    void showStudentUCs(int id);
+    void showStudentClasses(int id);
+    void showStudentUCTurma(int id);
+
 
     void showAllStudentCodes();
     void showAllStudentNames();
+    void showAllUC();
+    void showAllClasses();
     void showAllStudents();
 };
 

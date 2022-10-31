@@ -32,7 +32,7 @@ int main() {
             students.showAllStudents();
             break;
         case 2:
-            cout<<students.getStudentName(202031607);
+            students.showStudentUCs(202071557);
             break;
     }
 
