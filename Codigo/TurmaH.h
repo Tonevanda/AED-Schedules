@@ -1,21 +1,35 @@
 //
 // Created by tomas on 30/10/2022.
 //
+#ifndef CODIGO_TURMAH_H
+#define CODIGO_TURMAH_H
 #include <string>
-#include <list>
+#include "binarySearchTree.h"
 #include "UCTurma.h"
 #include "Slot.h"
 using namespace std;
-#ifndef CODIGO_TURMAH_H
-#define CODIGO_TURMAH_H
-
 
 class TurmaH {
-        friend class UCTurma;
 private:
-    list<Slot>horaUCTurma;
+    string codUC;
+    string codTurma;
+    BST<Slot> horario = BST<Slot>(Slot());
 public:
+    TurmaH() {};
+    TurmaH(string codUC, string codTurma);
 
+    string getCodUc() const;
+    string getCodTurma() const;
+    BST<Slot> getHorario() const;
+
+    void addSlot(Slot slot);
+
+    void showHorario();
+
+    bool operator<(const TurmaH& s2) const;
+    bool operator>(const TurmaH& s2) const;
+    bool operator==(const TurmaH& s2) const;
+    bool operator!=(const TurmaH& s2) const;
 };
 
 

@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include "UCTurma.h"
+#include "TurmaH.h"
 #include "binarySearchTree.h"
 
 using namespace std;
@@ -24,6 +25,8 @@ public:
     int getStudentCode() const;
     string getStudentName() const;
     BST<UCTurma> getCourses() const;
+
+    void showAllHorarios();
 
     bool operator<(const Student& s2) const;
     bool operator>(const Student& s2) const;

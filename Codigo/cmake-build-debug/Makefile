@@ -152,6 +152,30 @@ BSTudents.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/BSTudents.cpp.s
 .PHONY : BSTudents.cpp.s
 
+GestaoHor.obj: GestaoHor.cpp.obj
+.PHONY : GestaoHor.obj
+
+# target to build an object file
+GestaoHor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/GestaoHor.cpp.obj
+.PHONY : GestaoHor.cpp.obj
+
+GestaoHor.i: GestaoHor.cpp.i
+.PHONY : GestaoHor.i
+
+# target to preprocess a source file
+GestaoHor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/GestaoHor.cpp.i
+.PHONY : GestaoHor.cpp.i
+
+GestaoHor.s: GestaoHor.cpp.s
+.PHONY : GestaoHor.s
+
+# target to generate assembly for a file
+GestaoHor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Codigo.dir\build.make CMakeFiles/Codigo.dir/GestaoHor.cpp.s
+.PHONY : GestaoHor.cpp.s
+
 Slot.obj: Slot.cpp.obj
 .PHONY : Slot.obj
 
@@ -284,6 +308,9 @@ help:
 	@echo ... BSTudents.obj
 	@echo ... BSTudents.i
 	@echo ... BSTudents.s
+	@echo ... GestaoHor.obj
+	@echo ... GestaoHor.i
+	@echo ... GestaoHor.s
 	@echo ... Slot.obj
 	@echo ... Slot.i
 	@echo ... Slot.s

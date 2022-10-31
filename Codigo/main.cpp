@@ -6,10 +6,13 @@
 #include "student.h"
 #include "binarySearchTree.h"
 #include "BSTudents.h"
+#include "GestaoHor.h"
 
 int main() {
     BSTudents students = BSTudents(); // inicializa BST de students
     students.insertStudents(); // insere todos os students
+    GestaoHor h = GestaoHor();
+    h.insertSchedule();
 
     int input;
     cout<<"Input Student Id:\n";
@@ -32,7 +35,10 @@ int main() {
             students.showAllStudents();
             break;
         case 2:
-            students.showStudentUCs(202071557);
+            students.showStudentClasses(202071557);
+            break;
+        case 3:
+            h.showUCTandHorario();
             break;
     }
 

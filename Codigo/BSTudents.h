@@ -13,13 +13,15 @@ private:
 public:
     BSTudents() {NULL;};
     void insertStudents();
+    void insertSchedule();
 
     string getStudentName(int id) const;
     BST<UCTurma> getStudentUCTurma(int id) const;
+    string getStudentUCs(int id) const;
+
     void showStudentUCs(int id);
     void showStudentClasses(int id);
     void showStudentUCTurma(int id);
-
 
     void showAllStudentCodes();
     void showAllStudentNames();

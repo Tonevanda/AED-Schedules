@@ -88,6 +88,12 @@
 		<Unit filename="D:/AED/TrabalhoAED/Codigo/BSTudents.h">
 			<Option target="Codigo"/>
 		</Unit>
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/GestaoHor.cpp">
+			<Option target="Codigo"/>
+		</Unit>
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/GestaoHor.h">
+			<Option target="Codigo"/>
+		</Unit>
 		<Unit filename="D:/AED/TrabalhoAED/Codigo/Slot.cpp">
 			<Option target="Codigo"/>
 		</Unit>

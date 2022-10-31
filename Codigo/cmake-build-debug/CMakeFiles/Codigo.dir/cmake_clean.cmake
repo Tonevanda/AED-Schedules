@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Codigo.dir/BSTudents.cpp.obj"
   "CMakeFiles/Codigo.dir/BSTudents.cpp.obj.d"
+  "CMakeFiles/Codigo.dir/GestaoHor.cpp.obj"
+  "CMakeFiles/Codigo.dir/GestaoHor.cpp.obj.d"
   "CMakeFiles/Codigo.dir/Slot.cpp.obj"
   "CMakeFiles/Codigo.dir/Slot.cpp.obj.d"
   "CMakeFiles/Codigo.dir/TurmaH.cpp.obj"

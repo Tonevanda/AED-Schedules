@@ -1,5 +1,6 @@
 #include "BSTudents.h"
 #include "UCTurma.h"
+#include "TurmaH.h"
 #include <fstream>
 #include <sstream>
 
@@ -42,6 +43,20 @@ BST<UCTurma> BSTudents::getStudentUCTurma(int id) const {
     Student student = Student(id, "");
     student = students.find(student);
     return student.getCourses();
+}
+
+string BSTudents::getStudentUCs(int id) const{
+    Student student = Student(id, "");
+    student = students.find(student);
+    BST<UCTurma> UCT = student.getCourses();
+    ostringstream out;
+
+    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
+    while(!it.isAtEnd()){
+        out << it.retrieve().getUC();
+        it.advance();
+    }
+    return out.str();
 }
 
 void BSTudents::showStudentUCs(int id) {

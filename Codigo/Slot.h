@@ -10,12 +10,24 @@ using namespace std;
 class Slot {
 private:
     string Diadasemana;
-    string HorarioInicio;
-    string HorarioFim;
+    double HorarioInicio;
+    double HorarioFim;
     string Tipo;
 public:
     Slot() {};
-    Slot(string Diadasemana, string HorarioInicio, string HorarioFim, string Tipo);
+    Slot(string Diadasemana, double HorarioInicio, double HorarioFim, string Tipo);
+
+    string getDiaDaSemana() const;
+    double getHorarioInicio() const;
+    double getHorarioFim() const;
+    string getTipo() const;
+
+    int valor(string dia) const;
+
+    bool operator<(const Slot& s2) const;
+    bool operator>(const Slot& s2) const;
+    bool operator==(const Slot& s2) const;
+    bool operator!=(const Slot& s2) const;
 };
 
 

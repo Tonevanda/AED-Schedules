@@ -4,7 +4,10 @@
 #ifndef CODIGO_UCTURMA_H
 #define CODIGO_UCTURMA_H
 #include <string>
+#include <list>
 #include "binarySearchTree.h"
+#include "Slot.h"
+#include "TurmaH.h"
 using namespace std;
 
 
@@ -13,7 +16,6 @@ class UCTurma {
 private:
     string codUC;
     string codTurma;
-    //List<slot>horaUCTurma
 public:
     UCTurma() {NULL;};
     UCTurma(string codeUC, string codeTurma);
