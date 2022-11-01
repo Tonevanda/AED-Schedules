@@ -8,6 +8,22 @@
 #include <string>
 #include <iostream>
 
+void GestaoHor::insertTurmas() {
+    ifstream fout;
+    fout.open("../classes_per_uc.csv");
+    string tempstream, UcCode, ClassCode;
+    getline (fout, tempstream);
+
+    while(getline(fout, tempstream)){
+        stringstream it_stream(tempstream);
+        getline(it_stream, UcCode, ',');
+        getline(it_stream, ClassCode, '\r');
+        TurmaH turma = TurmaH(UcCode, ClassCode);
+        horarios.insert(turma);
+    }
+    fout.close();
+}
+
 void GestaoHor::insertSchedule() {
     ifstream fout;
     double horaInicio, duracao;
@@ -49,30 +65,25 @@ BST<TurmaH> GestaoHor::getHorarios() const{
 
 bool GestaoHor::addAluno(TurmaH turma) {
     turma = horarios.find(turma);
-    if(turma.getnAlunos()>= 30) return false;
     horarios.remove(turma);
     turma.addAluno();
     horarios.insert(turma);
     return true;
 }
-
 bool GestaoHor::addAluno(std::string UcCode, std::string ClassCode) {
-    TurmaH temp = TurmaH(UcCode, ClassCode);
-    temp = horarios.find(temp);
-    if(temp.getnAlunos()>= 30) return false;
-    horarios.remove(temp);
-    temp.addAluno();
-    horarios.insert(temp);
+    TurmaH turma = TurmaH(UcCode, ClassCode);
+    turma = horarios.find(turma);
+    horarios.remove(turma);
+    turma.addAluno();
+    horarios.insert(turma);
     return true;
 }
-
 void GestaoHor::removeAluno(TurmaH turma) {
     turma = horarios.find(turma);
     horarios.remove(turma);
     turma.removeAluno();
     horarios.insert(turma);
 }
-
 void GestaoHor::removeAluno(std::string UcCode, std::string ClassCode) {
     TurmaH temp = TurmaH(UcCode, ClassCode);
     temp = horarios.find(temp);
@@ -80,17 +91,46 @@ void GestaoHor::removeAluno(std::string UcCode, std::string ClassCode) {
     temp.removeAluno();
     horarios.insert(temp);
 }
-/* Para mudar de turma ig
-    int nAlunoAtual = temp.getnAlunos();
 
-    BSTItrIn<TurmaH> it = BSTItrIn<TurmaH>(horarios);
-    while(it.retrieve().getCodUc() != UcCode){
+bool GestaoHor::canChangeTurma(TurmaH turma) {
+    turma = horarios.find(turma);
+    if(turma.getnAlunos()>= 30){
+        cout << "Turma cheia";
+        return false;
+    }
+    else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4){
+        cout << "Nao pode entrar nesta turma uma vez que iria provocar uma divergencia muito grande de alunos entre turmas";
+        return false;
+    }
+    return true;
+}
+bool GestaoHor::canChangeTurma(string UcCode, string ClassCode) {
+    TurmaH turma = TurmaH(UcCode, ClassCode);
+    turma = horarios.find(turma);
+    if(turma.getnAlunos()>= 30){
+        cout << "Turma cheia";
+        return false;
+    }
+    else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4){
+        cout << "Nao pode entrar nesta turma uma vez que iria provocar uma divergencia muito grande de alunos entre turmas";
+        return false;
+    }
+    return true;
+}
+
+int GestaoHor::findMinAlunos(std::string UcCode) {
+    int min = INT_MAX;
+    //TurmaH temp = TurmaH(UcCode, "");
+
+    BSTItrIn<TurmaH> it = horarios;
+    while(!it.isAtEnd()){
+        if(it.retrieve().getCodUc()==UcCode){
+            if(it.retrieve().getnAlunos()<min) min = it.retrieve().getnAlunos();
+        }
         it.advance();
     }
-    while (it.retrieve().getCodUc() == UcCode){
-        if(it.retrieve().getnAlunos()-nAlunoAtual >= 4)
-    }
- */
+    return min;
+}
 
 void GestaoHor::shownAlunosUC(string UcCode){
     TurmaH temp = TurmaH(UcCode, "");
@@ -105,14 +145,12 @@ void GestaoHor::shownAlunos(std::string UcCode, std::string ClassCode) {
 void GestaoHor::showUCTHorario(string UcCode, string ClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);
     turma = horarios.find(turma);
-    BST<Slot> hor = turma.getHorario();
-    BSTItrIn<Slot> it = BSTItrIn<Slot> (hor);
-    while(!it.isAtEnd()){
-        cout << it.retrieve().getDiaDaSemana() << " " << it.retrieve().getHorarioInicio() << " " << it.retrieve().getHorarioFim() << " " << it.retrieve().getTipo() << "\n";
-        it.advance();
+    vector<Slot> hor = turma.getHorario();
+
+    for(auto it: hor){
+        cout << it.getDiaDaSemana() << " " << it.getHorarioInicio() << " " << it.getHorarioFim() << " " << it.getTipo() << "\n";
     }
 }
-
 void GestaoHor::showUCTandHorario() {
     BSTItrIn<TurmaH> it = BSTItrIn<TurmaH> (horarios);
     while(!it.isAtEnd()) {

@@ -3,6 +3,7 @@
 //
 
 #include "TurmaH.h"
+#include <Algorithm>
 
 TurmaH::TurmaH(std::string codUC, std::string codTurma) {
     this->codUC = codUC;
@@ -19,12 +20,13 @@ string TurmaH::getCodTurma() const {
 int TurmaH::getnAlunos() const {
     return nAlunos;
 }
-BST<Slot> TurmaH::getHorario() const {
+vector<Slot> TurmaH::getHorario() const {
     return horario;
 }
 
 void TurmaH::addSlot(Slot slot) {
-    horario.insert(slot);
+    horario.push_back(slot);
+    std::sort(horario.begin(), horario.end());
 }
 void TurmaH::addAluno() {
     nAlunos++;
@@ -34,14 +36,13 @@ void TurmaH::removeAluno() {
 }
 
 void TurmaH::showHorario() {
-    BSTItrIn<Slot> it = BSTItrIn<Slot> (horario);
-    while(!it.isAtEnd()){
+    for(auto it: horario){
         int iniciomin=00;
         int finalmin=00;
-        int inicioint=(int)(it.retrieve().getHorarioInicio()*10);
+        int inicioint=(int)(it.getHorarioInicio()*10);
         if (inicioint%10!=0){iniciomin=30;}
         inicioint/=10;
-        int finalint=(int)(it.retrieve().getHorarioFim()*10);
+        int finalint=(int)(it.getHorarioFim()*10);
         if (finalint%10!=0){finalmin=30;}
         finalint/=10;
         string iniciomins,finalmins;
@@ -49,8 +50,7 @@ void TurmaH::showHorario() {
         else{iniciomins= to_string(iniciomin);}
         if(finalmin==0){finalmins="00";}
         else{finalmins= to_string(finalmin);}
-        cout << it.retrieve().getDiaDaSemana() << " | " << inicioint <<":"<< iniciomins << " -> " << finalint <<":"<< finalmins << " | " << it.retrieve().getTipo() << "\n";
-        it.advance();
+        cout << it.getDiaDaSemana() << " | " << inicioint <<":"<< iniciomins << " -> " << finalint <<":"<< finalmins << " | " << it.getTipo() << "\n";
     }
 }
 

@@ -14,7 +14,7 @@ private:
     string codUC;
     string codTurma;
     int nAlunos;
-    BST<Slot> horario = BST<Slot>(Slot());
+    vector<Slot> horario;
 public:
     TurmaH() {};
     TurmaH(string codUC, string codTurma);
@@ -22,7 +22,7 @@ public:
     string getCodUc() const;
     string getCodTurma() const;
     int getnAlunos() const;
-    BST<Slot> getHorario() const;
+    vector<Slot> getHorario() const;
 
     void addSlot(Slot slot);
     void addAluno();

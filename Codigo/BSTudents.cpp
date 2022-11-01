@@ -3,6 +3,7 @@
 #include "TurmaH.h"
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 void BSTudents::insertStudents(GestaoHor *h) {
     ifstream fout;
@@ -41,23 +42,36 @@ bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
 
     TurmaH turmah = TurmaH(uc, turma);
     turmah = h->getHorarios().find(turmah);
-    if(!h->addAluno(turmah)){
+    if(!h->canChangeTurma(turmah)){
         return false;
     }
 
+    h->addAluno(turmah);
     students.remove(student);
     student.addCourse(uc, turma);
     students.insert(student);
     return true;
 
 }
+int find(vector<UCTurma>arr, UCTurma x){
+        int low=0;
+        int high=arr.size();
+        while(low != high){
+            int mid = (low + high)/2;
+        if (x == arr[mid]) return mid;
+        else if (x > arr[mid]) low = mid + 1;
+        else  high = mid - 1;
+    }
+}
 void BSTudents::removeUC(int id, std::string uc, GestaoHor* h) {
     Student student = Student(id, "");
     student = students.find(student);
 
-    BST<UCTurma> uct = student.getCourses();
+    vector<UCTurma> uct = student.getCourses();
     UCTurma temp = UCTurma(uc, "");
-    temp = uct.find(temp);
+    int pos=find(uct,temp);
+    temp = uct[pos];
+
     students.remove(student);
     student.removeCourse(temp);
     students.insert(student);
@@ -66,17 +80,35 @@ void BSTudents::removeUC(int id, std::string uc, GestaoHor* h) {
     turma = h->getHorarios().find(turma);
     h->removeAluno(turma);
 }
+void BSTudents::removeUC(int id, std::string uc, string oldTurma, GestaoHor* h) {
+    Student student = Student(id, "");
+    student = students.find(student);
+
+    vector<UCTurma> uct = student.getCourses();
+    UCTurma temp = UCTurma(uc, oldTurma);
+    int pos=find(uct,temp);
+    temp = uct[pos];
+    students.remove(student);
+    student.removeCourse(temp);
+    students.insert(student);
+
+    TurmaH turma = TurmaH(uc, oldTurma);
+    turma = h->getHorarios().find(turma);
+    h->removeAluno(turma);
+}
 bool BSTudents::changeTurma(int id, std::string oldUc, std::string oldTurma, string novaTurma, GestaoHor *h) {
     if(addUC(id, oldUc, novaTurma, h)){
-        removeUC(id, oldUc, h);
+        removeUC(id, oldUc, oldTurma, h);
+        return true;
     }
+    return false;
 }
 
 string BSTudents::getStudentName(int id) const {
     Student student = Student(id, "");
     return students.find(student).getStudentName();
 }
-BST<UCTurma> BSTudents::getStudentUCTurma(int id) const {
+vector<UCTurma> BSTudents::getStudentUCTurma(int id) const {
     Student student = Student(id, "");
     student = students.find(student);
     return student.getCourses();
@@ -84,67 +116,73 @@ BST<UCTurma> BSTudents::getStudentUCTurma(int id) const {
 string BSTudents::getStudentUCs(int id) const{
     Student student = Student(id, "");
     student = students.find(student);
-    BST<UCTurma> UCT = student.getCourses();
+    vector<UCTurma> UCT = student.getCourses();
     ostringstream out;
-
+    for(auto it:UCT){
+        out << it.getUC();
+    }
+    /*
     BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
     while(!it.isAtEnd()){
         out << it.retrieve().getUC();
         it.advance();
-    }
+    }*/
     return out.str();
 }
 string BSTudents::getStudentUCTs(int id) const{
     Student student = Student(id, "");
     student = students.find(student);
-    BST<UCTurma> UCT = student.getCourses();
+    vector<UCTurma> UCT = student.getCourses();
     ostringstream out;
-
+    for(auto it:UCT){
+        out << it.getUC()<< "," << it.getTurma() << ",";;
+    }
+    /*
     BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
     while(!it.isAtEnd()){
         out << it.retrieve().getUC() << "," << it.retrieve().getTurma() << ",";
         it.advance();
-    }
+    }*/
     return out.str();
 }
 
 void BSTudents::showStudentUCs(int id) {
     Student student = Student(id, "");
     student = students.find(student);
-    BST<UCTurma> UCT = student.getCourses();
-
-    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
-    while(!it.isAtEnd()){
-        cout << it.retrieve().getUC() << "\n";
-        it.advance();
+    vector<UCTurma> UCT = student.getCourses();
+    for (auto it: UCT) {
+        cout << it.getUC()<<"\n";
     }
 }
 void BSTudents::showStudentClasses(int id) {
     Student student = Student(id, "");
     student = students.find(student);
-    BST<UCTurma> UCT = student.getCourses();
-
-    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
-    while(!it.isAtEnd()){
-        cout << it.retrieve().getTurma() << "\n";
-        it.advance();
+    vector<UCTurma> UCT = student.getCourses();
+    for (auto it: UCT) {
+        cout << it.getTurma()<<"\n";
     }
+
 }
 void BSTudents::showStudentUCTurma(int id) {
     Student student = Student(id, "");
     student = students.find(student);
-    BST<UCTurma> UCT = student.getCourses();
-
-    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
-    while(!it.isAtEnd()){
-        cout << it.retrieve().getUC() << " " << it.retrieve().getTurma() << " ";
-        it.advance();
+    vector<UCTurma> UCT = student.getCourses();
+    for (auto it: UCT) {
+        cout << it.getUC() << " " << it.getTurma() << " ";
     }
 }
 void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
     Student student = Student(id, "");
     student = students.find(student);
-    BST<UCTurma> uct = student.getCourses();
+    vector<UCTurma> UCT = student.getCourses();
+    for (auto it: UCT) {
+        TurmaH hor = TurmaH(it.getUC(), it.getTurma());
+        TurmaH temp = h.find(hor);
+        cout << it.getUC() << ", " << it.getTurma() << ": \n";
+        temp.showHorario();
+        cout << "\n";
+    }
+    /*
     BSTItrIn<UCTurma> it = BSTItrIn<UCTurma>(uct);
     while(!it.isAtEnd()){
         TurmaH hor = TurmaH(it.retrieve().getUC(), it.retrieve().getTurma());
@@ -154,7 +192,7 @@ void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
         cout << "\n";
         it.advance();
     }
-
+    */
 }
 
 void BSTudents::showAllStudentCodes() {
@@ -175,7 +213,7 @@ void BSTudents::showAllStudents() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
         int id = it.retrieve().getStudentCode();
-        BST<UCTurma> UCT = BST<UCTurma> (it.retrieve().getCourses());
+        vector<UCTurma> UCT = it.retrieve().getCourses();
         cout << id << " "  << it.retrieve().getStudentName() << " ";
         showStudentUCTurma(id);
         cout << "\n";

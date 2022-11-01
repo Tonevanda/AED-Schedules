@@ -4,6 +4,7 @@
 
 #include "student.h"
 #include "binarySearchTree.h"
+#include <Algorithm>
 
 Student::Student() {
     NULL;
@@ -15,13 +16,17 @@ Student::Student(int StudentCode, string StudentName){
 
 void Student::addCourse(string UC, string Turma){
     UCTurma temp = UCTurma(UC, Turma);
-    Courses.insert(temp);
+    Courses.push_back(temp);
+    sort(Courses.begin(), Courses.end());
+    //Courses.insert(temp);
 }
 void Student::addCourse (UCTurma course){
-    Courses.insert(course);
+    Courses.push_back(course);
+    sort(Courses.begin(), Courses.end());
+    //Courses.insert(course);
 }
 void Student::removeCourse(UCTurma course) {
-    Courses.remove(course);
+    remove(Courses.begin(), Courses.end(),course);
 }
 
 int Student::getStudentCode() const{
@@ -30,15 +35,18 @@ int Student::getStudentCode() const{
 string Student::getStudentName() const{
     return StudentName;
 }
-BST<UCTurma> Student::getCourses() const{
+vector<UCTurma> Student::getCourses() const{
     return Courses;
 }
 
 void Student::showAllHorarios() {
-    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (Courses);
+    /*BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (Courses);
     while(!it.isAtEnd()){
         string uc = it.retrieve().getUC();
-        string turma = it.retrieve().getTurma();
+        string turma = it.retrieve().getTurma();*/
+    for(auto it:Courses){
+        string uc = it.getUC();
+        string turma = it.getTurma();
         TurmaH turmaH = TurmaH(uc,turma);
         turmaH.showHorario();
     }

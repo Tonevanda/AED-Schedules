@@ -16,12 +16,17 @@ public:
 
     BST<TurmaH> getHorarios() const;
 
+    void insertTurmas();
     void insertSchedule();
 
     bool addAluno(TurmaH turma);
     bool addAluno(string UcCode, string ClassCode);
     void removeAluno(TurmaH turma);
     void removeAluno(string UcCode, string ClassCode);
+    bool canChangeTurma(TurmaH turma);
+    bool canChangeTurma(string UcCode, string ClassCode);
+
+    int findMinAlunos(string UcCode);
 
     void shownAlunosUC(string UcCode);
     void shownAlunos(string UcCode, string ClassCode);

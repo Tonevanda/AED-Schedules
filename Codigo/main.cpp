@@ -10,6 +10,7 @@
 
 int main() {
     GestaoHor h = GestaoHor();
+    h.insertTurmas();
     h.insertSchedule();
     BSTudents students = BSTudents(); // inicializa BST de students
     students.insertStudents(&h); // insere todos os students
@@ -24,7 +25,7 @@ int main() {
         }
     bool flag= true;
     while(flag) {
-        cout << "Select Options:\n 0:End Program \n 1: Check all Students\n 2: Show your classes \n 3: Show another student's classes \n 4:ඞඞඞඞඞඞඞඞඞ \n 5:Show another student's Schedule";
+        cout << "Select Options:\n 0:End Program \n 1: Check all Students\n 2: Show your classes \n 3: Show another student's classes \n 4:ඞඞඞඞඞඞඞඞඞ \n 5:Show another student's Schedule\n";
         while (!(cin >> input2)) {
             cout << "Invalid Option" << endl; //executes
             cin.clear();
@@ -76,6 +77,10 @@ int main() {
                 students.showStudentUCs(202071557);
                 cout << "\nN de estudantes na UC L.EIC004 da Turma 1LEIC08 apos saida do estudante: \n";
                 h.shownAlunos("L.EIC004", "1LEIC08");
+                break;
+            case 9:
+                students.addUC(202123123, "L.EIC069", "2LEIC69", &h);
+                cout << "\n";
                 break;
             case 69:
                 cout

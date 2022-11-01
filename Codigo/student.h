@@ -5,6 +5,7 @@
 #define CODIGO_STUDENT_H
 #include <string>
 #include <vector>
+#include <list>
 #include <map>
 #include "UCTurma.h"
 #include "TurmaH.h"
@@ -16,7 +17,8 @@ class Student{
 private:
     int StudentCode;
     string StudentName;
-    BST<UCTurma> Courses = BST<UCTurma>(UCTurma());  //(UcCode,ClassCode)
+    vector<UCTurma> Courses;
+    //BST<UCTurma> Courses = BST<UCTurma>(UCTurma());  //(UcCode,ClassCode)
 public:
     Student();
     Student(int StudentCode, string StudentName);
@@ -27,7 +29,8 @@ public:
 
     int getStudentCode() const;
     string getStudentName() const;
-    BST<UCTurma> getCourses() const;
+    vector<UCTurma> getCourses() const;
+    //BST<UCTurma> getCourses() const;
 
     void showAllHorarios();
 
