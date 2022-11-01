@@ -13,6 +13,7 @@ class TurmaH {
 private:
     string codUC;
     string codTurma;
+    int nAlunos;
     BST<Slot> horario = BST<Slot>(Slot());
 public:
     TurmaH() {};
@@ -20,9 +21,12 @@ public:
 
     string getCodUc() const;
     string getCodTurma() const;
+    int getnAlunos() const;
     BST<Slot> getHorario() const;
 
     void addSlot(Slot slot);
+    void addAluno();
+    void removeAluno();
 
     void showHorario();
 

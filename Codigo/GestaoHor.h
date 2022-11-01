@@ -18,6 +18,13 @@ public:
 
     void insertSchedule();
 
+    bool addAluno(TurmaH turma);
+    bool addAluno(string UcCode, string ClassCode);
+    void removeAluno(TurmaH turma);
+    void removeAluno(string UcCode, string ClassCode);
+
+    void shownAlunosUC(string UcCode);
+    void shownAlunos(string UcCode, string ClassCode);
     void showUCTHorario(string UcCode, string ClassCode);
 
     void showUCTandHorario();

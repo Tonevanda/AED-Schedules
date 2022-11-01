@@ -20,7 +20,10 @@ private:
 public:
     Student();
     Student(int StudentCode, string StudentName);
+
+    void addCourse(string UC, string Turma);
     void addCourse(UCTurma course);
+    void removeCourse(UCTurma course);
 
     int getStudentCode() const;
     string getStudentName() const;

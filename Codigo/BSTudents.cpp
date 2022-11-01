@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-void BSTudents::insertStudents() {
+void BSTudents::insertStudents(GestaoHor *h) {
     ifstream fout;
     fout.open("../students_classes.csv");
     string tempstream,StudentCode,StudentName,UcCode,ClassCode;
@@ -20,6 +20,7 @@ void BSTudents::insertStudents() {
         Student student = Student(intStudentCode,StudentName);
         UCTurma ucturma = UCTurma(UcCode, ClassCode);
         Student test = students.find(student);
+        h->addAluno(UcCode, ClassCode);
 
         if(!students.isEmpty() && student == test){
             students.remove(test);
@@ -34,17 +35,52 @@ void BSTudents::insertStudents() {
     fout.close();
 }
 
+bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
+    Student student = Student(id, "");
+    student = students.find(student);
+
+    TurmaH turmah = TurmaH(uc, turma);
+    turmah = h->getHorarios().find(turmah);
+    if(!h->addAluno(turmah)){
+        return false;
+    }
+
+    students.remove(student);
+    student.addCourse(uc, turma);
+    students.insert(student);
+    return true;
+
+}
+void BSTudents::removeUC(int id, std::string uc, GestaoHor* h) {
+    Student student = Student(id, "");
+    student = students.find(student);
+
+    BST<UCTurma> uct = student.getCourses();
+    UCTurma temp = UCTurma(uc, "");
+    temp = uct.find(temp);
+    students.remove(student);
+    student.removeCourse(temp);
+    students.insert(student);
+
+    TurmaH turma = TurmaH(uc, temp.getTurma());
+    turma = h->getHorarios().find(turma);
+    h->removeAluno(turma);
+}
+bool BSTudents::changeTurma(int id, std::string oldUc, std::string oldTurma, string novaTurma, GestaoHor *h) {
+    if(addUC(id, oldUc, novaTurma, h)){
+        removeUC(id, oldUc, h);
+    }
+}
+
 string BSTudents::getStudentName(int id) const {
     Student student = Student(id, "");
     return students.find(student).getStudentName();
 }
-
 BST<UCTurma> BSTudents::getStudentUCTurma(int id) const {
     Student student = Student(id, "");
     student = students.find(student);
     return student.getCourses();
 }
-
 string BSTudents::getStudentUCs(int id) const{
     Student student = Student(id, "");
     student = students.find(student);
@@ -58,7 +94,6 @@ string BSTudents::getStudentUCs(int id) const{
     }
     return out.str();
 }
-
 string BSTudents::getStudentUCTs(int id) const{
     Student student = Student(id, "");
     student = students.find(student);
@@ -84,7 +119,6 @@ void BSTudents::showStudentUCs(int id) {
         it.advance();
     }
 }
-
 void BSTudents::showStudentClasses(int id) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -96,7 +130,6 @@ void BSTudents::showStudentClasses(int id) {
         it.advance();
     }
 }
-
 void BSTudents::showStudentUCTurma(int id) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -108,7 +141,6 @@ void BSTudents::showStudentUCTurma(int id) {
         it.advance();
     }
 }
-
 void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
     Student student = Student(id, "");
     student = students.find(student);
@@ -132,7 +164,6 @@ void BSTudents::showAllStudentCodes() {
         it.advance();
     }
 }
-
 void BSTudents::showAllStudentNames() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
@@ -140,7 +171,6 @@ void BSTudents::showAllStudentNames() {
         it.advance();
     }
 }
-
 void BSTudents::showAllStudents() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){

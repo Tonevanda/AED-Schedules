@@ -8,123 +8,123 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug"/>
+				<Option working_dir="D:/AED/TrabalhoAED/Codigo/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Codigo">
-				<Option output="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Codigo.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug"/>
+				<Option output="D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Codigo.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/AED/TrabalhoAED/Codigo/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 Codigo"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 Codigo"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Codigo/fast">
-				<Option output="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Codigo.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug"/>
+				<Option output="D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Codigo.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/AED/TrabalhoAED/Codigo/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 Codigo/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 Codigo/fast"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug"/>
+				<Option working_dir="D:/AED/TrabalhoAED/Codigo/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug"/>
+				<Option working_dir="D:/AED/TrabalhoAED/Codigo/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files/JetBrains/CLion 2022.2.3/bin/mingw/bin/mingw32-make.exe -f &quot;D:/AED/TrabalhoAED/Codigo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/BSTudents.cpp">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/BSTudents.cpp">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/BSTudents.h">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/BSTudents.h">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/GestaoHor.cpp">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/GestaoHor.cpp">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/GestaoHor.h">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/GestaoHor.h">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/Slot.cpp">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/Slot.cpp">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/Slot.h">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/Slot.h">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/TurmaH.cpp">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/TurmaH.cpp">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/TurmaH.h">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/TurmaH.h">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/UCTurma.cpp">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/UCTurma.cpp">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/UCTurma.h">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/UCTurma.h">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/binarySearchTree.h">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/binarySearchTree.h">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/main.cpp">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/main.cpp">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/student.cpp">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/student.cpp">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/student.h">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/student.h">
 			<Option target="Codigo"/>
 		</Unit>
-		<Unit filename="C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/CMakeLists.txt">
+		<Unit filename="D:/AED/TrabalhoAED/Codigo/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

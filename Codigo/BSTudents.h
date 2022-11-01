@@ -6,14 +6,18 @@
 #define MAIN_CPP_BSTUDENTS_H
 #include "student.h"
 #include "binarySearchTree.h"
+#include "GestaoHor.h"
 
 class BSTudents{
 private:
     BST<Student>students = BST<Student>(Student());
 public:
     BSTudents() {NULL;};
-    void insertStudents();
-    void insertSchedule();
+    void insertStudents(GestaoHor *h);
+
+    bool addUC(int id, string uc, string turma, GestaoHor* h);
+    void removeUC(int id, string uc, GestaoHor *h);
+    bool changeTurma(int id, string oldUc, string oldTurma, string NovaTurma, GestaoHor* h);
 
     string getStudentName(int id) const;
     BST<UCTurma> getStudentUCTurma(int id) const;

@@ -47,6 +47,61 @@ BST<TurmaH> GestaoHor::getHorarios() const{
     return horarios;
 }
 
+bool GestaoHor::addAluno(TurmaH turma) {
+    turma = horarios.find(turma);
+    if(turma.getnAlunos()>= 30) return false;
+    horarios.remove(turma);
+    turma.addAluno();
+    horarios.insert(turma);
+    return true;
+}
+
+bool GestaoHor::addAluno(std::string UcCode, std::string ClassCode) {
+    TurmaH temp = TurmaH(UcCode, ClassCode);
+    temp = horarios.find(temp);
+    if(temp.getnAlunos()>= 30) return false;
+    horarios.remove(temp);
+    temp.addAluno();
+    horarios.insert(temp);
+    return true;
+}
+
+void GestaoHor::removeAluno(TurmaH turma) {
+    turma = horarios.find(turma);
+    horarios.remove(turma);
+    turma.removeAluno();
+    horarios.insert(turma);
+}
+
+void GestaoHor::removeAluno(std::string UcCode, std::string ClassCode) {
+    TurmaH temp = TurmaH(UcCode, ClassCode);
+    temp = horarios.find(temp);
+    horarios.remove(temp);
+    temp.removeAluno();
+    horarios.insert(temp);
+}
+/* Para mudar de turma ig
+    int nAlunoAtual = temp.getnAlunos();
+
+    BSTItrIn<TurmaH> it = BSTItrIn<TurmaH>(horarios);
+    while(it.retrieve().getCodUc() != UcCode){
+        it.advance();
+    }
+    while (it.retrieve().getCodUc() == UcCode){
+        if(it.retrieve().getnAlunos()-nAlunoAtual >= 4)
+    }
+ */
+
+void GestaoHor::shownAlunosUC(string UcCode){
+    TurmaH temp = TurmaH(UcCode, "");
+    temp = horarios.find(temp);
+    //...
+}
+void GestaoHor::shownAlunos(std::string UcCode, std::string ClassCode) {
+    TurmaH temp = TurmaH(UcCode, ClassCode);
+    TurmaH finder = horarios.find(temp);
+    cout << "A cadeira " << UcCode << " da turma " << ClassCode << " tem: " << finder.getnAlunos() << " alunos.\n";
+}
 void GestaoHor::showUCTHorario(string UcCode, string ClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);
     turma = horarios.find(turma);

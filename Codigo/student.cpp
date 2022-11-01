@@ -13,10 +13,17 @@ Student::Student(int StudentCode, string StudentName){
     this->StudentName=StudentName;
 }
 
-
+void Student::addCourse(string UC, string Turma){
+    UCTurma temp = UCTurma(UC, Turma);
+    Courses.insert(temp);
+}
 void Student::addCourse (UCTurma course){
     Courses.insert(course);
 }
+void Student::removeCourse(UCTurma course) {
+    Courses.remove(course);
+}
+
 int Student::getStudentCode() const{
     return StudentCode;
 }

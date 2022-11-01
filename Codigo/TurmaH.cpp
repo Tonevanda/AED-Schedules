@@ -7,6 +7,7 @@
 TurmaH::TurmaH(std::string codUC, std::string codTurma) {
     this->codUC = codUC;
     this->codTurma = codTurma;
+    nAlunos = 0;
 }
 
 string TurmaH::getCodUc() const {
@@ -15,12 +16,21 @@ string TurmaH::getCodUc() const {
 string TurmaH::getCodTurma() const {
     return codTurma;
 }
+int TurmaH::getnAlunos() const {
+    return nAlunos;
+}
 BST<Slot> TurmaH::getHorario() const {
     return horario;
 }
 
 void TurmaH::addSlot(Slot slot) {
     horario.insert(slot);
+}
+void TurmaH::addAluno() {
+    nAlunos++;
+}
+void TurmaH::removeAluno() {
+    nAlunos -= 1;
 }
 
 void TurmaH::showHorario() {
