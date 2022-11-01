@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\AED\TrabalhoAED\Codigo
+CMAKE_SOURCE_DIR = C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\AED\TrabalhoAED\Codigo\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Codigo.dir/depend.make
@@ -71,100 +71,100 @@ include CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/main.cpp.obj: CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/Codigo.dir/main.cpp.obj: CMakeFiles/Codigo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Codigo.dir/main.cpp.obj"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/main.cpp.obj -MF CMakeFiles\Codigo.dir\main.cpp.obj.d -o CMakeFiles\Codigo.dir\main.cpp.obj -c D:\AED\TrabalhoAED\Codigo\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Codigo.dir/main.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/main.cpp.obj -MF CMakeFiles\Codigo.dir\main.cpp.obj.d -o CMakeFiles\Codigo.dir\main.cpp.obj -c C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\main.cpp
 
 CMakeFiles/Codigo.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Codigo.dir/main.cpp.i"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\AED\TrabalhoAED\Codigo\main.cpp > CMakeFiles\Codigo.dir\main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\main.cpp > CMakeFiles\Codigo.dir\main.cpp.i
 
 CMakeFiles/Codigo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Codigo.dir/main.cpp.s"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\AED\TrabalhoAED\Codigo\main.cpp -o CMakeFiles\Codigo.dir\main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\main.cpp -o CMakeFiles\Codigo.dir\main.cpp.s
 
 CMakeFiles/Codigo.dir/student.cpp.obj: CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/student.cpp.obj: ../student.cpp
 CMakeFiles/Codigo.dir/student.cpp.obj: CMakeFiles/Codigo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Codigo.dir/student.cpp.obj"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/student.cpp.obj -MF CMakeFiles\Codigo.dir\student.cpp.obj.d -o CMakeFiles\Codigo.dir\student.cpp.obj -c D:\AED\TrabalhoAED\Codigo\student.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Codigo.dir/student.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/student.cpp.obj -MF CMakeFiles\Codigo.dir\student.cpp.obj.d -o CMakeFiles\Codigo.dir\student.cpp.obj -c C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\student.cpp
 
 CMakeFiles/Codigo.dir/student.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Codigo.dir/student.cpp.i"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\AED\TrabalhoAED\Codigo\student.cpp > CMakeFiles\Codigo.dir\student.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\student.cpp > CMakeFiles\Codigo.dir\student.cpp.i
 
 CMakeFiles/Codigo.dir/student.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Codigo.dir/student.cpp.s"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\AED\TrabalhoAED\Codigo\student.cpp -o CMakeFiles\Codigo.dir\student.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\student.cpp -o CMakeFiles\Codigo.dir\student.cpp.s
 
 CMakeFiles/Codigo.dir/BSTudents.cpp.obj: CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/BSTudents.cpp.obj: ../BSTudents.cpp
 CMakeFiles/Codigo.dir/BSTudents.cpp.obj: CMakeFiles/Codigo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Codigo.dir/BSTudents.cpp.obj"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/BSTudents.cpp.obj -MF CMakeFiles\Codigo.dir\BSTudents.cpp.obj.d -o CMakeFiles\Codigo.dir\BSTudents.cpp.obj -c D:\AED\TrabalhoAED\Codigo\BSTudents.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Codigo.dir/BSTudents.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/BSTudents.cpp.obj -MF CMakeFiles\Codigo.dir\BSTudents.cpp.obj.d -o CMakeFiles\Codigo.dir\BSTudents.cpp.obj -c C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\BSTudents.cpp
 
 CMakeFiles/Codigo.dir/BSTudents.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Codigo.dir/BSTudents.cpp.i"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\AED\TrabalhoAED\Codigo\BSTudents.cpp > CMakeFiles\Codigo.dir\BSTudents.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\BSTudents.cpp > CMakeFiles\Codigo.dir\BSTudents.cpp.i
 
 CMakeFiles/Codigo.dir/BSTudents.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Codigo.dir/BSTudents.cpp.s"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\AED\TrabalhoAED\Codigo\BSTudents.cpp -o CMakeFiles\Codigo.dir\BSTudents.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\BSTudents.cpp -o CMakeFiles\Codigo.dir\BSTudents.cpp.s
 
 CMakeFiles/Codigo.dir/UCTurma.cpp.obj: CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/UCTurma.cpp.obj: ../UCTurma.cpp
 CMakeFiles/Codigo.dir/UCTurma.cpp.obj: CMakeFiles/Codigo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Codigo.dir/UCTurma.cpp.obj"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/UCTurma.cpp.obj -MF CMakeFiles\Codigo.dir\UCTurma.cpp.obj.d -o CMakeFiles\Codigo.dir\UCTurma.cpp.obj -c D:\AED\TrabalhoAED\Codigo\UCTurma.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Codigo.dir/UCTurma.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/UCTurma.cpp.obj -MF CMakeFiles\Codigo.dir\UCTurma.cpp.obj.d -o CMakeFiles\Codigo.dir\UCTurma.cpp.obj -c C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\UCTurma.cpp
 
 CMakeFiles/Codigo.dir/UCTurma.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Codigo.dir/UCTurma.cpp.i"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\AED\TrabalhoAED\Codigo\UCTurma.cpp > CMakeFiles\Codigo.dir\UCTurma.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\UCTurma.cpp > CMakeFiles\Codigo.dir\UCTurma.cpp.i
 
 CMakeFiles/Codigo.dir/UCTurma.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Codigo.dir/UCTurma.cpp.s"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\AED\TrabalhoAED\Codigo\UCTurma.cpp -o CMakeFiles\Codigo.dir\UCTurma.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\UCTurma.cpp -o CMakeFiles\Codigo.dir\UCTurma.cpp.s
 
 CMakeFiles/Codigo.dir/TurmaH.cpp.obj: CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/TurmaH.cpp.obj: ../TurmaH.cpp
 CMakeFiles/Codigo.dir/TurmaH.cpp.obj: CMakeFiles/Codigo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Codigo.dir/TurmaH.cpp.obj"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/TurmaH.cpp.obj -MF CMakeFiles\Codigo.dir\TurmaH.cpp.obj.d -o CMakeFiles\Codigo.dir\TurmaH.cpp.obj -c D:\AED\TrabalhoAED\Codigo\TurmaH.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Codigo.dir/TurmaH.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/TurmaH.cpp.obj -MF CMakeFiles\Codigo.dir\TurmaH.cpp.obj.d -o CMakeFiles\Codigo.dir\TurmaH.cpp.obj -c C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\TurmaH.cpp
 
 CMakeFiles/Codigo.dir/TurmaH.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Codigo.dir/TurmaH.cpp.i"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\AED\TrabalhoAED\Codigo\TurmaH.cpp > CMakeFiles\Codigo.dir\TurmaH.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\TurmaH.cpp > CMakeFiles\Codigo.dir\TurmaH.cpp.i
 
 CMakeFiles/Codigo.dir/TurmaH.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Codigo.dir/TurmaH.cpp.s"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\AED\TrabalhoAED\Codigo\TurmaH.cpp -o CMakeFiles\Codigo.dir\TurmaH.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\TurmaH.cpp -o CMakeFiles\Codigo.dir\TurmaH.cpp.s
 
 CMakeFiles/Codigo.dir/Slot.cpp.obj: CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/Slot.cpp.obj: ../Slot.cpp
 CMakeFiles/Codigo.dir/Slot.cpp.obj: CMakeFiles/Codigo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Codigo.dir/Slot.cpp.obj"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/Slot.cpp.obj -MF CMakeFiles\Codigo.dir\Slot.cpp.obj.d -o CMakeFiles\Codigo.dir\Slot.cpp.obj -c D:\AED\TrabalhoAED\Codigo\Slot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Codigo.dir/Slot.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/Slot.cpp.obj -MF CMakeFiles\Codigo.dir\Slot.cpp.obj.d -o CMakeFiles\Codigo.dir\Slot.cpp.obj -c C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\Slot.cpp
 
 CMakeFiles/Codigo.dir/Slot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Codigo.dir/Slot.cpp.i"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\AED\TrabalhoAED\Codigo\Slot.cpp > CMakeFiles\Codigo.dir\Slot.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\Slot.cpp > CMakeFiles\Codigo.dir\Slot.cpp.i
 
 CMakeFiles/Codigo.dir/Slot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Codigo.dir/Slot.cpp.s"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\AED\TrabalhoAED\Codigo\Slot.cpp -o CMakeFiles\Codigo.dir\Slot.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\Slot.cpp -o CMakeFiles\Codigo.dir\Slot.cpp.s
 
 CMakeFiles/Codigo.dir/GestaoHor.cpp.obj: CMakeFiles/Codigo.dir/flags.make
 CMakeFiles/Codigo.dir/GestaoHor.cpp.obj: ../GestaoHor.cpp
 CMakeFiles/Codigo.dir/GestaoHor.cpp.obj: CMakeFiles/Codigo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Codigo.dir/GestaoHor.cpp.obj"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/GestaoHor.cpp.obj -MF CMakeFiles\Codigo.dir\GestaoHor.cpp.obj.d -o CMakeFiles\Codigo.dir\GestaoHor.cpp.obj -c D:\AED\TrabalhoAED\Codigo\GestaoHor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Codigo.dir/GestaoHor.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Codigo.dir/GestaoHor.cpp.obj -MF CMakeFiles\Codigo.dir\GestaoHor.cpp.obj.d -o CMakeFiles\Codigo.dir\GestaoHor.cpp.obj -c C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\GestaoHor.cpp
 
 CMakeFiles/Codigo.dir/GestaoHor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Codigo.dir/GestaoHor.cpp.i"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\AED\TrabalhoAED\Codigo\GestaoHor.cpp > CMakeFiles\Codigo.dir\GestaoHor.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\GestaoHor.cpp > CMakeFiles\Codigo.dir\GestaoHor.cpp.i
 
 CMakeFiles/Codigo.dir/GestaoHor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Codigo.dir/GestaoHor.cpp.s"
-	"D:\Program Files\JetBrains\CLion 2022.2.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\AED\TrabalhoAED\Codigo\GestaoHor.cpp -o CMakeFiles\Codigo.dir\GestaoHor.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\GestaoHor.cpp -o CMakeFiles\Codigo.dir\GestaoHor.cpp.s
 
 # Object files for target Codigo
 Codigo_OBJECTS = \
@@ -190,7 +190,7 @@ Codigo.exe: CMakeFiles/Codigo.dir/build.make
 Codigo.exe: CMakeFiles/Codigo.dir/linklibs.rsp
 Codigo.exe: CMakeFiles/Codigo.dir/objects1.rsp
 Codigo.exe: CMakeFiles/Codigo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Codigo.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Codigo.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Codigo.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -202,6 +202,6 @@ CMakeFiles/Codigo.dir/clean:
 .PHONY : CMakeFiles/Codigo.dir/clean
 
 CMakeFiles/Codigo.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\AED\TrabalhoAED\Codigo D:\AED\TrabalhoAED\Codigo D:\AED\TrabalhoAED\Codigo\cmake-build-debug D:\AED\TrabalhoAED\Codigo\cmake-build-debug D:\AED\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles\Codigo.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug C:\Users\tomas\Documents\GitHub\TrabalhoAED\Codigo\cmake-build-debug\CMakeFiles\Codigo.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Codigo.dir/depend
 

@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/AED/TrabalhoAED/Codigo/cmake-build-debug",
-		"source" : "D:/AED/TrabalhoAED/Codigo"
+		"build" : "C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo/cmake-build-debug",
+		"source" : "C:/Users/tomas/Documents/GitHub/TrabalhoAED/Codigo"
 	},
 	"version" : 
 	{

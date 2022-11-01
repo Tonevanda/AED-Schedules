@@ -26,7 +26,20 @@ void TurmaH::addSlot(Slot slot) {
 void TurmaH::showHorario() {
     BSTItrIn<Slot> it = BSTItrIn<Slot> (horario);
     while(!it.isAtEnd()){
-        cout << it.retrieve().getDiaDaSemana() << " | " << it.retrieve().getHorarioInicio() << " -> " << it.retrieve().getHorarioFim() << " | " << it.retrieve().getTipo() << "\n";
+        int iniciomin=00;
+        int finalmin=00;
+        int inicioint=(int)(it.retrieve().getHorarioInicio()*10);
+        if (inicioint%10!=0){iniciomin=30;}
+        inicioint/=10;
+        int finalint=(int)(it.retrieve().getHorarioFim()*10);
+        if (finalint%10!=0){finalmin=30;}
+        finalint/=10;
+        string iniciomins,finalmins;
+        if(iniciomin==0){iniciomins="00";}
+        else{iniciomins= to_string(iniciomin);}
+        if(finalmin==0){finalmins="00";}
+        else{finalmins= to_string(finalmin);}
+        cout << it.retrieve().getDiaDaSemana() << " | " << inicioint <<":"<< iniciomins << " -> " << finalint <<":"<< finalmins << " | " << it.retrieve().getTipo() << "\n";
         it.advance();
     }
 }

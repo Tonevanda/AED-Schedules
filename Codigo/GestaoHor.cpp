@@ -24,10 +24,9 @@ void GestaoHor::insertSchedule() {
         getline(it_stream, sHoraInicio, ',');
         getline(it_stream, sDuracao, ',');
         getline(it_stream, tipo, '\r');
-        horaInicio = stod(sDuracao, &sz);
+        horaInicio = stod(sHoraInicio, &sz);
         duracao = stod(sDuracao, &sz);
         double horaFim = horaInicio + duracao;
-
         TurmaH horario = TurmaH(UcCode, ClassCode);
         Slot slot = Slot(diaDaSemana, horaInicio, horaFim, tipo);
         TurmaH test = horarios.find(horario);
