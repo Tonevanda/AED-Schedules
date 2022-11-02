@@ -35,12 +35,18 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h) {
             case 1:
                 str = "removeUC";
                 temp.push_back(str);
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
                 cout << "Insert your Student ID\n";
-                getline(cin, str);
+                cin>>str;
                 temp.push_back(str);
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
                 cout << "Insert the UC you want to remove\n";
-                getline(cin, str);
+                cin>>str;
                 temp.push_back(str);
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
                 requests->push(temp);
                 cout << "Request registered!\n\n";
                 break;
@@ -51,6 +57,9 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h) {
                 getline(cin, str);
                 temp.push_back(str);
                 cout << "Insert the UC you want to join\n";
+                getline(cin, str);
+                temp.push_back(str);
+                cout << "Insert the class in the Uc you want to join\n";
                 getline(cin, str);
                 temp.push_back(str);
                 requests->push(temp);
@@ -151,10 +160,32 @@ int main() {
             case 2:
                 menuAdm(students, h);
                 break;
-            //case 3:
-             //   for(auto request: requests){
+            case 3:
+                while(!requests.empty()){
+                    if(requests.front().front()=="removeUC"){
+                        int id = stoi(requests.front()[1]);
+                        string Uccode = requests.front()[2];
+                        cout<<"id: "<<id<<"Uccode: "<<Uccode<<"\n";
+                        students.removeUC(id, Uccode, &h);
 
-               // }
+                    }
+                    else if(requests.front().front()=="addUC"){
+                        int id = stoi(requests.front()[1]);
+                        string Uccode = requests.front()[2];
+                        string turma = requests.front()[3];
+                        cout<<"id: "<<id<<"Uccode: "<<Uccode<<"\n";
+                        students.addUC(id, Uccode,turma, &h);
+                    }
+                    else if(requests.front().front()=="changeUC"){
+                        int id = stoi(requests.front()[1]);
+                        string Uccode = requests.front()[2];
+                        //Não sei que função usar aqui
+                        cout<<"id: "<<id<<"Uccode: "<<Uccode<<"\n";
+
+                    }
+                    requests.pop();
+                }
+                break;
             default:
                 cout << "Invalid input!\n\n";
                 cin.clear();
@@ -178,3 +209,5 @@ int main() {
  * Estudantes com mais de n UCs
  * Doxygen + indicar complexidade
  */
+/*Obrigatorio
+ * nome de estudante<->numero estudante,queue,doxigen*/
