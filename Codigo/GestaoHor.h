@@ -23,8 +23,8 @@ public:
     bool addAluno(string UcCode, string ClassCode);
     void removeAluno(TurmaH turma);
     void removeAluno(string UcCode, string ClassCode);
-    bool canChangeTurma(TurmaH turma);
-    bool canChangeTurma(string UcCode, string ClassCode);
+    bool canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH oldTurma = TurmaH());
+    bool canChangeTurma(string UcCode, string ClassCode, vector<UCTurma> Courses, string oldClassCode = "");
 
     int findMinAlunos(string UcCode);
 

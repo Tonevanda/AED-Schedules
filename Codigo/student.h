@@ -30,7 +30,7 @@ public:
     int getStudentCode() const;
     string getStudentName() const;
     vector<UCTurma> getCourses() const;
-    //BST<UCTurma> getCourses() const;
+
 
     void showAllHorarios();
 

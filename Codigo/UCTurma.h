@@ -24,6 +24,7 @@ public:
 
     string getUC() const;
     string getTurma() const;
+    Slot getSlot() const;
 
     bool operator<(const UCTurma& s2) const;
     bool operator>(const UCTurma& s2) const;

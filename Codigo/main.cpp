@@ -1,12 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <fstream>
-#include <sstream>
-#include <typeinfo>
-#include "student.h"
-#include "binarySearchTree.h"
 #include "BSTudents.h"
 #include "GestaoHor.h"
+#include <queue>
 
 int main() {
     GestaoHor h = GestaoHor();
@@ -14,6 +9,7 @@ int main() {
     h.insertSchedule();
     BSTudents students = BSTudents(); // inicializa BST de students
     students.insertStudents(&h); // insere todos os students
+    queue<int> pedidos;
 
     int input1,input2;
     cout << "Input Student Id:\n";
@@ -25,13 +21,12 @@ int main() {
         }
     bool flag= true;
     while(flag) {
-        cout << "Select Options:\n 0:End Program \n 1: Check all Students\n 2: Show your classes \n 3: Show another student's classes \n 4:ඞඞඞඞඞඞඞඞඞ \n 5:Show another student's Schedule\n";
+        cout << "Select Options:\n 0:End Program \n 1: Check all Students\n 2: Show your classes \n 3: Show another student's classes \n 4:Show all classes \n 5:Show another student's Schedule\n 6:Show number of Students in a Class \n 7:Remove One of your Uc and show number of students before and after\n 8:Add an Uc and show number of students before and after\n 9:Tries to add Uc";
         while (!(cin >> input2)) {
             cout << "Invalid Option" << endl; //executes
             cin.clear();
             cin.ignore(INT_MAX, '\n');
-            cout
-                    << "Select Options:\n 1: Check all Students\n 2: Show your classes \n 3: Show another student's classes \n 4: \n 5:Show another student's Schedule";
+            cout << "Select Options:\n 0:End Program \n 1: Check all Students\n 2: Show your classes \n 3: Show another student's classes \n 4:Show all classes \n 5:Show another student's Schedule\n 6:Show number of Students in a Class \n 7:Remove One of your Uc and show number of students before and after\n 8:Add an Uc and show number of students before and after\n 9:Tries to add Uc";
         }
         switch (input2) {
             case 0:
@@ -54,7 +49,7 @@ int main() {
                 students.showStudentHorario(202071557, h.getHorarios());
                 break;
             case 6:
-                h.shownAlunos("L.EIC003", "1LEIC05");
+                h.shownAlunos("L.EIC003", "1LEIC05"); // Conjunto Cadeira + Turma -> n alunos em MDis na turma 1LEIC05
                 break;
             case 7:
                 cout << "UCs do estudante 202031607: \n";
@@ -68,18 +63,22 @@ int main() {
                 h.shownAlunos("L.EIC004", "1LEIC08");
                 break;
             case 8:
-                cout << "UCs do estudante 202071557: \n";
-                students.showStudentUCs(202071557);
-                cout << "\nN de estudantes na UC L.EIC004 da Turma 1LEIC08: \n";
-                h.shownAlunos("L.EIC004", "1LEIC08");
-                students.addUC(202071557, "L.EIC004", "1LEIC08", &h);
-                cout << "\nUCs do estudante 202071557 apos entrar na UC: ";
-                students.showStudentUCs(202071557);
-                cout << "\nN de estudantes na UC L.EIC004 da Turma 1LEIC08 apos saida do estudante: \n";
-                h.shownAlunos("L.EIC004", "1LEIC08");
+                cout << "UCs do estudante 202123123: \n";
+                students.showStudentUCs(202123123);
+                cout << "\nN de estudantes na UC L.EIC069 da Turma 2LEIC61: \n";
+                h.shownAlunos("L.EIC069", "2LEIC61");
+                students.addUC(202123123, "L.EIC069", "2LEIC61", &h);
+                cout << "\nUCs do estudante 202123123 apos entrar na UC: \n";
+                students.showStudentUCs(202123123);
+                cout << "\nN de estudantes na UC L.EIC069 da Turma 2LEIC61 apos entrada do estudante: \n";
+                h.shownAlunos("L.EIC069", "2LEIC61");
                 break;
             case 9:
-                students.addUC(202123123, "L.EIC069", "2LEIC69", &h);
+                students.addUC(202071557, "L.EIC004", "1LEIC08", &h);
+                cout << "\n";
+                break;
+            case 10:
+                students.addUC(202123123, "L.EIC064", "7LEIC69", &h);
                 cout << "\n";
                 break;
             case 69:

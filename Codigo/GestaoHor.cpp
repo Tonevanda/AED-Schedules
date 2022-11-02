@@ -92,28 +92,80 @@ void GestaoHor::removeAluno(std::string UcCode, std::string ClassCode) {
     horarios.insert(temp);
 }
 
-bool GestaoHor::canChangeTurma(TurmaH turma) {
+bool GestaoHor::canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH oldTurma) {
     turma = horarios.find(turma);
+    int oldTurmaAlunos = INT_MAX;
+    if (oldTurma != TurmaH()) {
+        oldTurma = horarios.find(oldTurma);
+        oldTurmaAlunos = oldTurma.getnAlunos();
+    }
+
     if(turma.getnAlunos()>= 30){
         cout << "Turma cheia";
         return false;
     }
-    else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4){
+    else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4 || turma.getnAlunos()+1 - oldTurmaAlunos-1 >= 4){
         cout << "Nao pode entrar nesta turma uma vez que iria provocar uma divergencia muito grande de alunos entre turmas";
         return false;
     }
+
+    for(auto it: Courses){
+        TurmaH temp = TurmaH(it.getUC(), it.getTurma()); // Temp = TurmaH(UcCode, ClassCode, 0, Vector<Slot> vazio)
+        temp = horarios.find(temp); // Encontra em horarios o objeto com UcCode / ClassCode igual -> temp = (UcCode, ClassCode, nAlunos, Vector<Slot> preenchido)
+        for(auto horario_antigo: temp.getHorario()){
+            if (horario_antigo.getTipo() != "T"){
+                for(auto horNovo : turma.getHorario()){
+                    if(horNovo.getDiaDaSemana() == horario_antigo.getDiaDaSemana() && horNovo.getTipo() != "T"){
+                        if(horario_antigo.getHorarioInicio() < horNovo.getHorarioFim() && horario_antigo.getHorarioInicio()>=horNovo.getHorarioInicio()){ //10.50 < 11:50 && 10.50 >= 9:50
+                            cout << "Nao pode trocar de turma uma vez que os horarios dariam overlap, rip!";
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
     return true;
 }
-bool GestaoHor::canChangeTurma(string UcCode, string ClassCode) {
+bool GestaoHor::canChangeTurma(string UcCode, string ClassCode,vector<UCTurma> Courses, string oldClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);
+    TurmaH oldTurma = TurmaH(UcCode, oldClassCode);
     turma = horarios.find(turma);
+    int oldTurmaAlunos = INT_MAX;
+    if (oldTurma != TurmaH()) {
+        oldTurma = horarios.find(oldTurma);
+        oldTurmaAlunos = oldTurma.getnAlunos();
+    }
+
     if(turma.getnAlunos()>= 30){
         cout << "Turma cheia";
         return false;
     }
-    else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4){
+    else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4 || turma.getnAlunos()+1 - oldTurmaAlunos-1 >= 4){
         cout << "Nao pode entrar nesta turma uma vez que iria provocar uma divergencia muito grande de alunos entre turmas";
         return false;
+    }
+
+    for(auto it: Courses){
+        TurmaH temp = TurmaH(it.getUC(), it.getTurma()); // Temp = TurmaH(UcCode, ClassCode, 0, Vector<Slot> vazio)
+        temp = horarios.find(temp); // Encontra em horarios o objeto com UcCode / ClassCode igual -> temp = (UcCode, ClassCode, nAlunos, Vector<Slot> preenchido)
+        for(auto horario_antigo: temp.getHorario()){
+            if (horario_antigo.getTipo() != "T"){
+                for(auto horNovo : turma.getHorario()){
+                    if(horNovo.getDiaDaSemana() == horario_antigo.getDiaDaSemana() && horNovo.getTipo() != "T"){
+                        if(horario_antigo.getHorarioInicio() < horNovo.getHorarioFim() && horario_antigo.getHorarioInicio()>=horNovo.getHorarioInicio()){ //10.50 < 11:50 && 10.50 >= 9:50
+                            cout << "Nao pode trocar de turma uma vez que os horarios dariam overlap, rip!";
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
     return true;
 }

@@ -5,6 +5,18 @@
 #include <sstream>
 #include <algorithm>
 
+int find(vector<UCTurma>arr, UCTurma x){
+    int low=0;
+    int high=arr.size();
+    while(low != high){
+        int mid = (low + high)/2;
+        if (x == arr[mid]) return mid;
+        else if (x > arr[mid]) low = mid + 1;
+        else  high = mid - 1;
+    }
+}
+
+
 void BSTudents::insertStudents(GestaoHor *h) {
     ifstream fout;
     fout.open("../students_classes.csv");
@@ -42,7 +54,8 @@ bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
 
     TurmaH turmah = TurmaH(uc, turma);
     turmah = h->getHorarios().find(turmah);
-    if(!h->canChangeTurma(turmah)){
+
+    if(!h->canChangeTurma(turmah, student.getCourses())){
         return false;
     }
 
@@ -53,16 +66,7 @@ bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
     return true;
 
 }
-int find(vector<UCTurma>arr, UCTurma x){
-        int low=0;
-        int high=arr.size();
-        while(low != high){
-            int mid = (low + high)/2;
-        if (x == arr[mid]) return mid;
-        else if (x > arr[mid]) low = mid + 1;
-        else  high = mid - 1;
-    }
-}
+
 void BSTudents::removeUC(int id, std::string uc, GestaoHor* h) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -220,3 +224,4 @@ void BSTudents::showAllStudents() {
         it.advance();
     }
 }
+

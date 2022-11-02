@@ -39,6 +39,7 @@ vector<UCTurma> Student::getCourses() const{
     return Courses;
 }
 
+
 void Student::showAllHorarios() {
     /*BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (Courses);
     while(!it.isAtEnd()){
