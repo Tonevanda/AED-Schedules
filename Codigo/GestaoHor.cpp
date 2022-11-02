@@ -101,11 +101,11 @@ bool GestaoHor::canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH old
     }
 
     if(turma.getnAlunos()>= 30){
-        cout << "Turma cheia";
+        cout << "Class is full";
         return false;
     }
     else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4 || turma.getnAlunos()+1 - oldTurmaAlunos-1 >= 4){
-        cout << "Nao pode entrar nesta turma uma vez que iria provocar uma divergencia muito grande de alunos entre turmas";
+        cout << "You cannot join this class since it would cause an imbalance of students between the classes";
         return false;
     }
 
@@ -117,7 +117,7 @@ bool GestaoHor::canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH old
                 for(auto horNovo : turma.getHorario()){
                     if(horNovo.getDiaDaSemana() == horario_antigo.getDiaDaSemana() && horNovo.getTipo() != "T"){
                         if(horario_antigo.getHorarioInicio() < horNovo.getHorarioFim() && horario_antigo.getHorarioInicio()>=horNovo.getHorarioInicio()){ //10.50 < 11:50 && 10.50 >= 9:50
-                            cout << "Nao pode trocar de turma uma vez que os horarios dariam overlap, rip!";
+                            cout << "You cannot change classes since the schedules would overlap";
                             return false;
                         }
                     }
@@ -141,11 +141,11 @@ bool GestaoHor::canChangeTurma(string UcCode, string ClassCode,vector<UCTurma> C
     }
 
     if(turma.getnAlunos()>= 30){
-        cout << "Turma cheia";
+        cout << "Class is full";
         return false;
     }
     else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4 || turma.getnAlunos()+1 - oldTurmaAlunos-1 >= 4){
-        cout << "Nao pode entrar nesta turma uma vez que iria provocar uma divergencia muito grande de alunos entre turmas";
+        cout << "You cannot join this class since it would cause an imbalance of students between the classes";
         return false;
     }
 
@@ -157,7 +157,7 @@ bool GestaoHor::canChangeTurma(string UcCode, string ClassCode,vector<UCTurma> C
                 for(auto horNovo : turma.getHorario()){
                     if(horNovo.getDiaDaSemana() == horario_antigo.getDiaDaSemana() && horNovo.getTipo() != "T"){
                         if(horario_antigo.getHorarioInicio() < horNovo.getHorarioFim() && horario_antigo.getHorarioInicio()>=horNovo.getHorarioInicio()){ //10.50 < 11:50 && 10.50 >= 9:50
-                            cout << "Nao pode trocar de turma uma vez que os horarios dariam overlap, rip!";
+                            cout << "You cannot change classes since the schedules would overlap";
                             return false;
                         }
                     }
@@ -192,7 +192,7 @@ void GestaoHor::shownAlunosUC(string UcCode){
 void GestaoHor::shownAlunos(std::string UcCode, std::string ClassCode) {
     TurmaH temp = TurmaH(UcCode, ClassCode);
     TurmaH finder = horarios.find(temp);
-    cout << "A cadeira " << UcCode << " da turma " << ClassCode << " tem: " << finder.getnAlunos() << " alunos.\n";
+    cout << "The UC " << UcCode << " of the class " << ClassCode << " has: " << finder.getnAlunos() << " students.\n";
 }
 void GestaoHor::showUCTHorario(string UcCode, string ClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);

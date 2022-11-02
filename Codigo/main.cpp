@@ -9,24 +9,24 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h) {
     vector<string> temp;
     int input, id;
     while(canRun) {
-        cout << "O que deseja fazer?\n"
-                "1: Remover UC\n"
-                "2: Adicionar UC\n"
-                "3: Mudar de turma\n"
-                "4: Ver horario de UC\n"
-                "5: Ver horario completo\n"
-                "0: Voltar atras\n";
+        cout << "What do you want to do?\n"
+                "1: Remove UC\n"
+                "2: Add UC\n"
+                "3: Change classes\n"
+                "4: Check schedule of an UC\n"
+                "5: Check full schedule\n"
+                "0: Go back\n";
         while(!(cin >> input)){
-            cout << "Escolha invalida!\n\n";
+            cout << "Invalid input!\n\n";
             cin.clear();
             cin.ignore(INT_MAX, '\n');
-            cout << "O que deseja fazer?\n"
-                    "1: Remover UC\n"
-                    "2: Adicionar UC\n"
-                    "3: Mudar de turma\n"
-                    "4: Ver horario de UC\n"
-                    "5: Ver horario completo\n"
-                    "0: Voltar atras\n";
+            cout << "What do you want to do?\n"
+                    "1: Remove UC\n"
+                    "2: Add UC\n"
+                    "3: Change classes\n"
+                    "4: Check schedule of an UC\n"
+                    "5: Check full schedule\n"
+                    "0: Go back\n";
         }
         switch(input){
             case 0:
@@ -35,67 +35,67 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h) {
             case 1:
                 str = "removeUC";
                 temp.push_back(str);
-                cout << "Insira o seu Student ID\n";
+                cout << "Insert your Student ID\n";
                 getline(cin, str);
                 temp.push_back(str);
-                cout << "Insira a UC que deseja remover\n";
+                cout << "Insert the UC you want to remove\n";
                 getline(cin, str);
                 temp.push_back(str);
                 requests->push(temp);
-                cout << "Pedido registado!\n\n";
+                cout << "Request registered!\n\n";
                 break;
             case 2:
                 str = "addUC";
                 temp.push_back(str);
-                cout << "Insira o seu Student ID\n";
+                cout << "Insert your Student ID\n";
                 getline(cin, str);
                 temp.push_back(str);
-                cout << "Insira a UC em que deseja se juntar\n";
+                cout << "Insert the UC you want to join\n";
                 getline(cin, str);
                 temp.push_back(str);
                 requests->push(temp);
-                cout << "Pedido registado!\n\n";
+                cout << "Request registered!\n\n";
                 break;
             case 3:
                 str = "changeUC";
                 temp.push_back(str);
-                cout << "Insira o seu Student ID\n";
+                cout << "Insert your Student ID\n";
                 getline(cin, str);
                 temp.push_back(str);
-                cout << "Insira a UC da turma que deseja alterar\n";
+                cout << "Insert the UC of the class you want to change to\n";
                 getline(cin, str);
                 temp.push_back(str);
-                cout << "Insira a turma em que deseja entrar\n";
+                cout << "Insert the class you want to change to\n";
                 getline(cin, str);
                 temp.push_back(str);
                 requests->push(temp);
-                cout << "Pedido registado!\n\n";
+                cout << "Request registered!\n\n";
                 break;
             case 4:
-                cout << "Insira o seu Student ID\n";
+                cout << "Insert your Student ID\n";
                 while(!(cin >> id)){
-                    cout << "ID Invalido, insira novamente!\n";
+                    cout << "Invalid ID, please try again!\n";
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
                 }
                 if(!students.idValid(id)){
-                    cout << "ID invalido!";
+                    cout << "Invalid ID!";
                     break;
                 }
-                cout << "Insira a UC que deseja ver o horario\n";
+                cout << "Insert the UC you want to check the schedule of\n";
                 cin >> str;
                 students.showStudentUCHor(id, str, h.getHorarios());
                 cout << "\n";
                 break;
             case 5:
-                cout << "Insira o seu Student ID\n";
+                cout << "Insert your Student ID\n";
                 while(!(cin >> id)){
-                    cout << "ID Invalido, insira novamente!\n";
+                    cout << "Invalid ID, please try again!\n";
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
                 }
                 if(!students.idValid(id)){
-                    cout << "ID invalido!\n";
+                    cout << "Invalid ID!\n";
                     break;
                 }
                 students.showStudentHorario(id, h.getHorarios());
@@ -107,7 +107,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h) {
 void menuAdm(BSTudents students, GestaoHor h){
     bool canRun = true;
     while(canRun){
-        cout << "Escolha o que deseja ver: \n"
+        cout << "Choose want you want to do: \n"
                 "1: Mostrar todos os alunos"
                 "...";
     }
@@ -126,20 +126,20 @@ int main() {
     bool canRun = true;
 
     while(canRun){
-        cout << "Escolha o modo de uso: \n"
-                "1: Usuario\n"
-                "2: Administrador\n"
-                "3: Processar pedidos\n"
-                "0: Abandonar menu\n" << flush;
+        cout << "Choose usage mode: \n"
+                "1: User\n"
+                "2: Admin\n"
+                "3: Process requests\n"
+                "0: Leave menu\n" << flush;
         while(!(cin >> input1)){
-            cout << "Escolha invalida!\n\n";
+            cout << "Invalid input!\n\n";
             cin.clear();
             cin.ignore(INT_MAX, '\n');
-            cout <<"Escolha o modo de uso: \n"
-                   "1: Usuario\n"
-                   "2: Administrador\n"
-                   "3: Processar pedidos\n"
-                   "0: Abandonar menu\n"<< flush;
+            cout <<"Choose usage mode: \n"
+                   "1: User\n"
+                   "2: Admin\n"
+                   "3: Process requests\n"
+                   "0: Leave menu\n"<< flush;
         }
         switch(input1){
             case 0:
@@ -156,7 +156,7 @@ int main() {
 
                // }
             default:
-                cout << "Escolha invalida!\n\n";
+                cout << "Invalid input!\n\n";
                 cin.clear();
                 cin.ignore(INT_MAX, '\n');
                 break;
