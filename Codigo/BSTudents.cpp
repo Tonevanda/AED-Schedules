@@ -48,6 +48,13 @@ void BSTudents::insertStudents(GestaoHor *h) {
     fout.close();
 }
 
+bool BSTudents::idValid(int id) {
+    Student student = Student(id, "");
+    student = students.find(student);
+    if(student.getStudentName() == "") return false;
+    return true;
+}
+
 bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -100,9 +107,17 @@ void BSTudents::removeUC(int id, std::string uc, string oldTurma, GestaoHor* h) 
     turma = h->getHorarios().find(turma);
     h->removeAluno(turma);
 }
-bool BSTudents::changeTurma(int id, std::string oldUc, std::string oldTurma, string novaTurma, GestaoHor *h) {
-    if(addUC(id, oldUc, novaTurma, h)){
-        removeUC(id, oldUc, oldTurma, h);
+bool BSTudents::changeTurma(int id, std::string Uc, string novaTurma, GestaoHor *h) {
+    Student student = Student(id, "");
+    student = students.find(student);
+    vector<UCTurma> uct = student.getCourses();
+    UCTurma temp = UCTurma(Uc, "");
+    int pos=find(uct,temp);
+    temp = uct[pos];
+    string oldTurma = temp.getTurma();
+
+    if(addUC(id, Uc, novaTurma, h)){
+        removeUC(id, Uc, oldTurma, h);
         return true;
     }
     return false;
@@ -148,6 +163,19 @@ string BSTudents::getStudentUCTs(int id) const{
         it.advance();
     }*/
     return out.str();
+}
+
+void BSTudents::showStudentUCHor(int id, string ucCode, BST<TurmaH> h){
+    Student student = Student(id, "");
+    student = students.find(student);
+    vector<UCTurma> UCT = student.getCourses();
+    UCTurma temp = UCTurma(ucCode, "");
+    int pos=find(UCT,temp);
+    temp = UCT[pos];
+
+    TurmaH turmah = TurmaH(temp.getUC(), temp.getTurma());
+    turmah = h.find(turmah);
+    turmah.showHorario();
 }
 
 void BSTudents::showStudentUCs(int id) {

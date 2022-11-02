@@ -15,15 +15,19 @@ public:
     BSTudents() {NULL;};
     void insertStudents(GestaoHor *h);
 
+    bool idValid(int id);
+
     bool addUC(int id, string uc, string turma, GestaoHor* h);
     void removeUC(int id, string uc, GestaoHor *h);
     void removeUC(int id, string uc, string oldTurma, GestaoHor *h);
-    bool changeTurma(int id, string oldUc, string oldTurma, string NovaTurma, GestaoHor* h);
+    bool changeTurma(int id, string Uc, string NovaTurma, GestaoHor* h);
 
     string getStudentName(int id) const;
     vector<UCTurma> getStudentUCTurma(int id) const;
     string getStudentUCs(int id) const;
     string getStudentUCTs(int id) const;
+
+    void showStudentUCHor(int id, string ucCode, BST<TurmaH> h);
 
     void showStudentUCs(int id);
     void showStudentClasses(int id);

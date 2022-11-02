@@ -937,19 +937,13 @@ CMakeFiles/Codigo.dir/main.cpp.obj: ../main.cpp \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
+  ../BSTudents.h \
+  ../student.h \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
-  D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
-  D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/codecvt.h \
-  D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
-  D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
-  D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
-  D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
-  D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
-  ../student.h \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocated_ptr.h \
@@ -978,7 +972,6 @@ CMakeFiles/Codigo.dir/main.cpp.obj: ../main.cpp \
   D:/Program\ Files/JetBrains/CLion\ 2022.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_queue.h \
   ../Slot.h \
   ../TurmaH.h \
-  ../BSTudents.h \
   ../GestaoHor.h
 
 CMakeFiles/Codigo.dir/student.cpp.obj: ../student.cpp \
