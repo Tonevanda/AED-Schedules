@@ -47,23 +47,36 @@ void Student::removeCourse(UCTurma course) {
     }
 }
 /**
- * 
+ * Remove todas as UCTurmas (UC e respetiva turma) do estudante
  */
 void Student::clearCourse() {
     Courses.clear();
 }
-
+/**
+ * Retorna o ID do estudante
+ * @return
+ */
 int Student::getStudentCode() const{
     return StudentCode;
 }
+/**
+ * Retorna o nome do estudante
+ * @return
+ */
 string Student::getStudentName() const{
     return StudentName;
 }
+/**
+ * Retorna um vetor com todas as UCTurmas (UC e respetiva turma) do estudante
+ * @return
+ */
 vector<UCTurma> Student::getCourses() const{
     return Courses;
 }
 
-
+/**
+ * Printa o horário completo do estudante (Dia da semana, Hora de início e fim, UC e respetiva turma)
+ */
 void Student::showAllHorarios() {
     for(auto it:Courses){
         string uc = it.getUC();
@@ -72,16 +85,33 @@ void Student::showAllHorarios() {
         turmaH.showHorario();
     }
 }
-
+/**
+ * Override ao operador <. Verifica se o ID do estudante é menor que o ID do estudante2
+ * @param s2
+ * @return
+ */
 bool Student::operator<(const Student &s2) const {
     return StudentCode < s2.StudentCode;
 }
+/**
+ * Override ao operador >. Verifica se o ID do estudante é maior que o ID do estudante2
+ */
 bool Student::operator>(const Student &s2) const {
     return StudentCode > s2.StudentCode;
 }
+/**
+ * Override ao operador ==. Verifica se o ID do estudante é igual ao ID do estudante2
+ * @param s2
+ * @return
+ */
 bool Student::operator==(const Student &s2) const {
     return StudentCode == s2.StudentCode;
 }
+/**
+ * Override ao operador !=. Verifica se o ID do estudante é diferente do ID do estudante2
+ * @param s2
+ * @return
+ */
 bool Student::operator!=(const Student &s2) const {
     return StudentCode != s2.StudentCode;
 }

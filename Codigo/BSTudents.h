@@ -13,7 +13,7 @@ private:
     BST<Student>students = BST<Student>(Student());
 public:
     BSTudents() {NULL;};
-    void insertStudents(GestaoHor *h);
+    void insertStudents(GestaoHor *h,string file);
 
     bool idValid(int id);
 

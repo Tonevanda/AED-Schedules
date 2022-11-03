@@ -4,26 +4,48 @@
 
 #include "TurmaH.h"
 #include <Algorithm>
-
+/**
+ * Construtor da classe TurmaH constituído por uma UC, a sua respetiva turma e o número de alunos inscritos
+ * nessa UC nessa turma
+ * @param codUC
+ * @param codTurma
+ */
 TurmaH::TurmaH(std::string codUC, std::string codTurma) {
     this->codUC = codUC;
     this->codTurma = codTurma;
     nAlunos = 0;
 }
-
+/**
+ * Retorna o código da UC
+ * @return
+ */
 string TurmaH::getCodUc() const {
     return codUC;
 }
+/**
+ * Retorna o código da turma
+ */
 string TurmaH::getCodTurma() const {
     return codTurma;
 }
+/**
+ * Retorna o número de alunos presentemente inscritos nessa UC nessa turma
+ * @return
+ */
 int TurmaH::getnAlunos() const {
     return nAlunos;
 }
+/**
+ * Retorna um vetor com o horário de cada UC
+ * @return
+ */
 vector<Slot> TurmaH::getHorario() const {
     return horario;
 }
-
+/**
+ * Adiciona um slot de aulas ao horário
+ * @param slot
+ */
 void TurmaH::addSlot(Slot slot) {
     horario.push_back(slot);
     std::sort(horario.begin(), horario.end());

@@ -277,7 +277,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
 
 void menuAdm(BSTudents students, GestaoHor h){
     bool canRun = true;
-    int input, choice;
+    int input;
     while(canRun){
         cout << "Choose want you want to do: \n"
                 "1: Show every student\n"
@@ -296,7 +296,19 @@ void menuAdm(BSTudents students, GestaoHor h){
                 canRun = false;
                 break;
             case 1:
-                cout
+                cout << "How do you want to see?\n"
+                        "1: Ordered by Student ID\n"
+                        "2: Ordered by Name\n";
+                while(!(cin >> input)){
+                    cout << "Invalid input!\n\n";
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout <<"How do you want to see?\n"
+                           "1: Ordered by Student ID\n"
+                           "2: Ordered by Name\n";
+                }
+                if(input == 1) students.showAllStudentCodes();
+                else if(input == 2) students.showAllStudentNames();
         }
     }
 }
@@ -346,8 +358,11 @@ int main() {
     GestaoHor h = GestaoHor();
     h.insertTurmas();
     h.insertSchedule();
+    cout<<"Insert File name with extension:";
+    string file;
+    cin>>file;
     BSTudents students = BSTudents(); // inicializa BST de students
-    students.insertStudents(&h); // insere todos os students
+    students.insertStudents(&h,file); // insere todos os students
     queue<vector<string>> requests;
     queue<vector<string>> failedr;
     vector<string> temp;

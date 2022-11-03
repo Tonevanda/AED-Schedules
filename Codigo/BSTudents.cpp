@@ -26,9 +26,10 @@ int find(vector<UCTurma>arr, UCTurma x){
  * Lê os dados do ficheiro e insere os dados dos estudantes na BST correspondente
  * @param h
  */
-void BSTudents::insertStudents(GestaoHor *h) {
+void BSTudents::insertStudents(GestaoHor *h,string file) {
     ifstream fout;
-    fout.open("../students_classes.csv");
+    file="../"+file;
+    fout.open(file);
     string tempstream,StudentCode,StudentName,UcCode,ClassCode;
     getline (fout, tempstream);
 
@@ -393,7 +394,7 @@ void BSTudents::showAllStudentsinYear(char year){
 void BSTudents::showAllStudentCodes() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
-        cout << it.retrieve().getStudentCode() << "\n";
+        cout << "Student: " << it.retrieve().getStudentCode() << ", " << it.retrieve().getStudentName();
         it.advance();
     }
 }
@@ -401,8 +402,10 @@ void BSTudents::showAllStudentCodes() {
  * Printa o nome de todos os estudantes
  */
 void BSTudents::showAllStudentNames() {
+    Set<string> sete;
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
+        sete.insert
         cout << it.retrieve().getStudentName() << "\n";
         it.advance();
     }
