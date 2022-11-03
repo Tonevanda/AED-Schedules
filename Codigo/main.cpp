@@ -37,77 +37,135 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h) {
                 temp.push_back(str);
                 cin.clear();
                 cin.ignore(INT_MAX, '\n');
-                cout << "Insert your Student ID\n";
+
+                cout << "Insert your Student ID or Name:\n";
                 cin>>str;
-                temp.push_back(str);
+                id = students.getStudentId(str);
+                if(id == 0){
+                    id = stoi(str);
+                }
+                if(!students.idValid(id)){
+                    cout << "User not found!\n";
+                    break;
+                }
+                temp.push_back(to_string(id));
                 cin.clear();
                 cin.ignore(INT_MAX, '\n');
+
                 cout << "Insert the UC you want to remove\n";
                 cin>>str;
                 temp.push_back(str);
                 cin.clear();
                 cin.ignore(INT_MAX, '\n');
+
                 requests->push(temp);
                 cout << "Request registered!\n\n";
                 break;
             case 2:
                 str = "addUC";
                 temp.push_back(str);
-                cout << "Insert your Student ID\n";
-                getline(cin, str);
-                temp.push_back(str);
+
+                cout << "Insert your Student ID or Name:\n";
+                cin>>str;
+                id = students.getStudentId(str);
+                if(id == 0){
+                    id = stoi(str);
+                }
+                if(!students.idValid(id)){
+                    cout << "User not found!\n";
+                    break;
+                }
+                temp.push_back(to_string(id));
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
                 cout << "Insert the UC you want to join\n";
-                getline(cin, str);
+                cin>>str;
                 temp.push_back(str);
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
                 cout << "Insert the class in the Uc you want to join\n";
-                getline(cin, str);
+                cin>>str;
                 temp.push_back(str);
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
                 requests->push(temp);
                 cout << "Request registered!\n\n";
                 break;
             case 3:
                 str = "changeUC";
                 temp.push_back(str);
-                cout << "Insert your Student ID\n";
-                getline(cin, str);
-                temp.push_back(str);
+
+                cout << "Insert your Student ID or Name:\n";
+                cin>>str;
+                id = students.getStudentId(str);
+                if(id == 0){
+                    id = stoi(str);
+                }
+                if(!students.idValid(id)){
+                    cout << "User not found!\n";
+                    break;
+                }
+                temp.push_back(to_string(id));
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
+
                 cout << "Insert the UC of the class you want to change to\n";
-                getline(cin, str);
+                cin>>str;
                 temp.push_back(str);
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
                 cout << "Insert the class you want to change to\n";
-                getline(cin, str);
+                cin>>str;
                 temp.push_back(str);
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
                 requests->push(temp);
                 cout << "Request registered!\n\n";
                 break;
             case 4:
-                cout << "Insert your Student ID\n";
-                while(!(cin >> id)){
-                    cout << "Invalid ID, please try again!\n";
-                    cin.clear();
-                    cin.ignore(INT_MAX, '\n');
+                cout << "Insert your Student ID or Name:\n";
+                cin>>str;
+                id = students.getStudentId(str);
+                if(id == 0){
+                    id = stoi(str);
                 }
                 if(!students.idValid(id)){
-                    cout << "Invalid ID!";
+                    cout << "User not found!\n";
                     break;
                 }
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
                 cout << "Insert the UC you want to check the schedule of\n";
-                cin >> str;
+                cin>>str;
                 students.showStudentUCHor(id, str, h.getHorarios());
                 cout << "\n";
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
                 break;
             case 5:
-                cout << "Insert your Student ID\n";
-                while(!(cin >> id)){
-                    cout << "Invalid ID, please try again!\n";
-                    cin.clear();
-                    cin.ignore(INT_MAX, '\n');
+                cout << "Insert your Student ID or Name:\n";
+                cin>>str;
+                id = students.getStudentId(str);
+                if(id == 0){
+                    id = stoi(str);
                 }
                 if(!students.idValid(id)){
-                    cout << "Invalid ID!\n";
+                    cout << "User not found!\n";
                     break;
                 }
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+
                 students.showStudentHorario(id, h.getHorarios());
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
                 break;
         }
     }
@@ -133,7 +191,11 @@ int main() {
     string str;
     int input1;
     bool canRun = true;
-
+    students.showAllStudentsinUC("L.EIC004");
+    cout << "\n\n";
+    students.showAllStudentsinUCTurma("L.EIC004", "1LEIC08");
+    cout << "\n\n";
+    students.showAllStudentsinTurma("1LEIC08");
     while(canRun){
         cout << "Choose usage mode: \n"
                 "1: User\n"
@@ -165,23 +227,23 @@ int main() {
                     if(requests.front().front()=="removeUC"){
                         int id = stoi(requests.front()[1]);
                         string Uccode = requests.front()[2];
-                        cout<<"id: "<<id<<"Uccode: "<<Uccode<<"\n";
                         students.removeUC(id, Uccode, &h);
-
                     }
                     else if(requests.front().front()=="addUC"){
                         int id = stoi(requests.front()[1]);
                         string Uccode = requests.front()[2];
                         string turma = requests.front()[3];
-                        cout<<"id: "<<id<<"Uccode: "<<Uccode<<"\n";
-                        students.addUC(id, Uccode,turma, &h);
+                        if(!students.addUC(id, Uccode,turma, &h)){
+                            //adicionar a outra cena
+                        }
                     }
                     else if(requests.front().front()=="changeUC"){
                         int id = stoi(requests.front()[1]);
                         string Uccode = requests.front()[2];
-                        //Não sei que função usar aqui
-                        cout<<"id: "<<id<<"Uccode: "<<Uccode<<"\n";
-
+                        string novaTurma = requests.front()[3];
+                        if(!students.changeTurma(id, Uccode, novaTurma, &h)){
+                            //adicionar a outra cena
+                        }
                     }
                     requests.pop();
                 }
@@ -201,13 +263,12 @@ int main() {
 
 /*Falta:
  * Escrever/guardar mudanças em ficheiros
- * Queue (Processar pedido)
- * Traduzir para Eng/UK (or Pirate Eng)
+ * Queue (Processar pedido) e guardar noutra cena o que faltar
  * Alterar um conjunto de turmas/uc
  * Ordenação de Listagens
- * Printar todos alunos de uma Turma/Cadeira/Ano
+ * Printar todos alunos de uma Turma(retirar duplicados ig?) e Ano
  * Estudantes com mais de n UCs
  * Doxygen + indicar complexidade
  */
 /*Obrigatorio
- * nome de estudante<->numero estudante,queue,doxigen*/
+ *queue,doxigen*/

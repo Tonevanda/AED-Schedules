@@ -26,7 +26,9 @@ void Student::addCourse (UCTurma course){
     //Courses.insert(course);
 }
 void Student::removeCourse(UCTurma course) {
-    remove(Courses.begin(), Courses.end(),course);
+    for(auto it = Courses.begin(); it != Courses.end(); it++){
+        if(*it == course) Courses.erase(it);
+    }
 }
 
 int Student::getStudentCode() const{
@@ -41,10 +43,6 @@ vector<UCTurma> Student::getCourses() const{
 
 
 void Student::showAllHorarios() {
-    /*BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (Courses);
-    while(!it.isAtEnd()){
-        string uc = it.retrieve().getUC();
-        string turma = it.retrieve().getTurma();*/
     for(auto it:Courses){
         string uc = it.getUC();
         string turma = it.getTurma();
