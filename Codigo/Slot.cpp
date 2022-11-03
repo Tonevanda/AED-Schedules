@@ -6,6 +6,7 @@
 #include "Slot.h"
 /**
  * Construtor da classe Slot constituído pelo dia da semana, hora de início e fim de uma UC e o seu tipo (T, TP ou PL)
+ * Time-complexity -> O(1)
  * @param Diadasemana
  * @param HorarioInicio
  * @param HorarioFim
@@ -21,21 +22,25 @@ Slot::Slot(string Diadasemana, double HorarioInicio, double HorarioFim, string T
 
 /**
  * Retorna o Dia da semana
+ * Time-complexity -> O(1)
  * @return
  */
 string Slot::getDiaDaSemana() const {return Diadasemana;}
 /**
  * Retorna a hora de início de uma UC
+ * Time-complexity -> O(1)
  * @return
  */
 double Slot::getHorarioInicio() const{return HorarioInicio;}
 /**
  * Retorna o hora do fim de uma UC
+ * Time-complexity -> O(1)
  * @return
  */
 double Slot::getHorarioFim() const{return HorarioFim;}
 /**
  * Retorna o tipo de uma UC (T, TP ou PL)
+ * Time-complexity -> O(1)
  * @return
  */
 string Slot::getTipo() const{return Tipo;}
@@ -43,6 +48,7 @@ string Slot::getTipo() const{return Tipo;}
 
 /**
  * Corresponde a cada dia da semana um valor inteiro para facilitar ordenação
+ * Time-complexity -> O(1)
  * @param dia
  * @return
  */
@@ -61,6 +67,7 @@ int Slot::valor(std::string dia) const {
 
 /**
  * Override ao operador < para verificar se o slot ocorre antes do slot2
+ * Time-complexity -> O(1)
  * @param s2
  * @return
  */
@@ -72,6 +79,7 @@ bool Slot::operator<(const Slot &s2) const {
 }
 /**
  * Override ao operador > para verificar se o slot ocorre depois do slot2
+ * Time-complexity -> O(1)
  */
 bool Slot::operator>(const Slot &s2) const {
     if(valor(Diadasemana) == valor(s2.Diadasemana)){
@@ -81,6 +89,7 @@ bool Slot::operator>(const Slot &s2) const {
 }
 /**
  * Override ao operador == para verificar se o slot ocorre simultaneamente com o slot2
+ * Time-complexity -> O(1)
  * @param s2
  * @return
  */
@@ -92,6 +101,7 @@ bool Slot::operator==(const Slot &s2) const {
 }
 /**
  * Override ao operator != para verificar se o slot não ocorre simultaeamente com o slot2
+ * Time-complexity -> O(1)
  */
 bool Slot::operator!=(const Slot &s2) const {
     if(valor(Diadasemana) == valor(s2.Diadasemana)){

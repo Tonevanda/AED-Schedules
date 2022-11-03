@@ -5,6 +5,7 @@
 #include "UCTurma.h"
 /**
  * Construtor da classe UCTurma constituído por uma UC e a sua respetiva turma
+ * Time-complexity -> O(1)
  * @param codeUC
  * @param codeTurma
  */
@@ -14,6 +15,7 @@ UCTurma::UCTurma(string codeUC, string codeTurma){
 }
 /**
  * Muda a turma a atual para a turma inserida
+ * Time-complexity -> O(1)
  * @param novaTurma
  */
 void UCTurma::mudarTurma(string novaTurma) {
@@ -21,6 +23,7 @@ void UCTurma::mudarTurma(string novaTurma) {
 }
 /**
  * Retorna a UC
+ * Time-complexity -> O(1)
  * @return
  */
 string UCTurma::getUC() const {
@@ -28,6 +31,7 @@ string UCTurma::getUC() const {
 }
 /**
  * Retorna a turma
+ * Time-complexity -> O(1)
  * @return
  */
 string UCTurma::getTurma() const {
@@ -36,6 +40,7 @@ string UCTurma::getTurma() const {
 
 /**
  * Override ao operador <. Verifica se o código da UC é menor que o código da UC2
+ * Time-complexity -> O(1)
  * @param s2
  * @return
  */
@@ -44,6 +49,7 @@ bool UCTurma::operator<(const UCTurma &s2) const {
 }
 /**
  * Override ao operador >. Verifica se o código da UC é maior que o código da UC2
+ * Time-complexity -> O(1)
  * @param s2
  * @return
  */
@@ -52,6 +58,7 @@ bool UCTurma::operator>(const UCTurma &s2) const {
 }
 /**
  * Override ao operador ==. Verifica se o código da UC é igual ao código da UC2
+ * Time-complexity -> O(1)
  * @param s2
  * @return
  */
@@ -60,6 +67,7 @@ bool UCTurma::operator==(const UCTurma &s2) const {
 }
 /**
  * Override ao operador !=. Verifica se o código da UC é diferente do código da UC2
+ * Time-complexity -> O(1)
  * @param s2
  * @return
  */

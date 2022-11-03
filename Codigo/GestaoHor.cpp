@@ -9,6 +9,7 @@
 #include <iostream>
 /**
  * Lê o ficheiro e insere as turmas lidas na BST correspondente
+ * Time-complexity -> O(nlog(n))
  */
 void GestaoHor::insertTurmas() {
     ifstream fout;
@@ -25,7 +26,10 @@ void GestaoHor::insertTurmas() {
     }
     fout.close();
 }
-
+/**
+ * Lê os horários das UCs do ficheiro e insere na BST correspondente
+ * Time-complexity -> O(nlog(n))
+ */
 void GestaoHor::insertSchedule() {
     ifstream fout;
     double horaInicio, duracao;
@@ -60,11 +64,45 @@ void GestaoHor::insertSchedule() {
     }
     fout.close();
 }
-
+/**
+ * Verifica se o código de UC inserido existe na BST
+ * Time-complexity -> O(n)
+ * @param UcCode
+ * @return
+ */
+bool GestaoHor::isValidUC(string UcCode) {
+    BSTItrIn<TurmaH> it = horarios;
+    while(!it.isAtEnd()){
+        if(it.retrieve().getCodUc()==UcCode) return true;
+        it.advance();
+    }
+    return false;
+}
+/**
+ * Verifica se o código de turma inserido existe na BST
+ * Time-complexity -> O(log(n))
+ */
+bool GestaoHor::isValidTurma(string UcCode, string classCode){
+    //if(!isValidUC(UcCode)) return false;
+    TurmaH turmah = TurmaH(UcCode, classCode);
+    turmah = horarios.find(turmah);
+    if(turmah.getHorario().size() == 0) return false;
+    return true;
+}
+/**
+ * Retorna a BST com os horários da turma
+ * Time-complexity -> O(1)
+ * @return
+ */
 BST<TurmaH> GestaoHor::getHorarios() const{
     return horarios;
 }
-
+/**
+ * Adiciona um aluno a uma TurmaH (UC e turma respetiva) e atualiza a BST correspondente
+ * Time-complexity -> O(log(n))
+ * @param turma
+ * @return
+ */
 bool GestaoHor::addAluno(TurmaH turma) {
     turma = horarios.find(turma);
     horarios.remove(turma);
@@ -72,6 +110,13 @@ bool GestaoHor::addAluno(TurmaH turma) {
     horarios.insert(turma);
     return true;
 }
+/**
+ * Adiciona um aluno a uma UC e turma respetiva e atualiza a BST correspondente
+ * Time-complexity -> O(log(n))
+ * @param UcCode
+ * @param ClassCode
+ * @return
+ */
 bool GestaoHor::addAluno(std::string UcCode, std::string ClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);
     turma = horarios.find(turma);
@@ -80,12 +125,23 @@ bool GestaoHor::addAluno(std::string UcCode, std::string ClassCode) {
     horarios.insert(turma);
     return true;
 }
+/**
+ * Remove um aluno de uma TurmaH (UC e turma respetiva) e atualiza a BST correspondente
+ * Time-complexity -> O(log(n))
+ * @param turma
+ */
 void GestaoHor::removeAluno(TurmaH turma) {
     turma = horarios.find(turma);
     horarios.remove(turma);
     turma.removeAluno();
     horarios.insert(turma);
 }
+/**
+ * Remove um aluno de uma UC e turma respetiva e atualiza a BST correspondente
+ * Time-complexity -> O(log(n))
+ * @param UcCode
+ * @param ClassCode
+ */
 void GestaoHor::removeAluno(std::string UcCode, std::string ClassCode) {
     TurmaH temp = TurmaH(UcCode, ClassCode);
     temp = horarios.find(temp);
@@ -93,7 +149,14 @@ void GestaoHor::removeAluno(std::string UcCode, std::string ClassCode) {
     temp.removeAluno();
     horarios.insert(temp);
 }
-
+/**
+ * Verifica se o pedido para mudar de turma é válido
+ * Time-complexity -> O(nlog(n))
+ * @param turma
+ * @param Courses
+ * @param oldTurma
+ * @return
+ */
 bool GestaoHor::canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH oldTurma) {
     turma = horarios.find(turma);
     int oldTurmaAlunos = INT_MAX;
@@ -132,6 +195,15 @@ bool GestaoHor::canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH old
 
     return true;
 }
+/**
+ * Verifica se o pedido para mudar de turma é válido (parâmetros alternativos)
+ * Time-complexity -> O(log(n))
+ * @param UcCode
+ * @param ClassCode
+ * @param Courses
+ * @param oldClassCode
+ * @return
+ */
 bool GestaoHor::canChangeTurma(string UcCode, string ClassCode,vector<UCTurma> Courses, string oldClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);
     TurmaH oldTurma = TurmaH(UcCode, oldClassCode);
@@ -171,10 +243,14 @@ bool GestaoHor::canChangeTurma(string UcCode, string ClassCode,vector<UCTurma> C
     }
     return true;
 }
-
+/**
+ * Retorna o número de alunos da turma com menos alunos
+ * Time-complexity -> O(n)
+ * @param UcCode
+ * @return
+ */
 int GestaoHor::findMinAlunos(std::string UcCode) {
     int min = INT_MAX;
-    //TurmaH temp = TurmaH(UcCode, "");
 
     BSTItrIn<TurmaH> it = horarios;
     while(!it.isAtEnd()){
@@ -185,17 +261,38 @@ int GestaoHor::findMinAlunos(std::string UcCode) {
     }
     return min;
 }
-
+/**
+ * Printa o número de alunos inscritos numa cadeira
+ * Time-complexity -> O(n)
+ * @param UcCode
+ */
 void GestaoHor::shownAlunosUC(string UcCode){
-    TurmaH temp = TurmaH(UcCode, "");
-    temp = horarios.find(temp);
-    //...
+    BSTItrIn<TurmaH> it = horarios;
+    int val = 0;
+    while(!it.isAtEnd()){
+        if(it.retrieve().getCodUc() == UcCode){
+            val += it.retrieve().getnAlunos();
+        }
+    }
+    cout << "There are " << val << " students in " << UcCode << "\n";
 }
+/**
+ * Printa o número de alunos inscritos numa turma de uma cadeira
+ * Time-complexity -> O(log(n))
+ * @param UcCode
+ * @param ClassCode
+ */
 void GestaoHor::shownAlunos(std::string UcCode, std::string ClassCode) {
     TurmaH temp = TurmaH(UcCode, ClassCode);
     TurmaH finder = horarios.find(temp);
     cout << "The UC " << UcCode << " of the class " << ClassCode << " has: " << finder.getnAlunos() << " students.\n";
 }
+/**
+ * Printa o dia da semana, horário de início e fim (formato hh:mm) e tipo (T, TP e PL) de uma UC de uma turma
+ * Time-complexity -> O(n)
+ * @param UcCode
+ * @param ClassCode
+ */
 void GestaoHor::showUCTHorario(string UcCode, string ClassCode) {
     TurmaH turma = TurmaH(UcCode, ClassCode);
     turma = horarios.find(turma);
@@ -205,6 +302,10 @@ void GestaoHor::showUCTHorario(string UcCode, string ClassCode) {
         cout << it.getDiaDaSemana() << " " << it.getHorarioInicio() << " " << it.getHorarioFim() << " " << it.getTipo() << "\n";
     }
 }
+/**
+ * Printa a UC, turma, e o seu respetivo horário
+ * Time-complexity -> O(n)
+ */
 void GestaoHor::showUCTandHorario() {
     BSTItrIn<TurmaH> it = BSTItrIn<TurmaH> (horarios);
     while(!it.isAtEnd()) {

@@ -10,10 +10,10 @@
  */
 void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,queue<vector<string>> *failedr) {
     bool canRun = true, changing = true;
-    string str, modo;
     vector<string> temp;
-    int input, id;
     while(canRun) {
+        string str, modo, tempuc;
+        int input, id;
         cout << "What do you want to do?\n"
                 "1: Remove UC\n"
                 "2: Add UCs\n"
@@ -59,9 +59,14 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     temp.push_back(to_string(id));
                     cout << "Insert the UC you want to remove\n";
                     cin >> str;
-                    temp.push_back(str);
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
+                    if(!h.isValidUC(str)){
+                        cout << "Invalid UC\n";
+                        temp.clear();
+                        break;
+                    }
+                    temp.push_back(str);
 
                     requests->push(temp);
                     temp.clear();
@@ -90,6 +95,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                         }
                     }
                 }
+                changing = true;
                 break;
             case 2:
                 modo = "addUC";
@@ -111,16 +117,25 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     temp.push_back(to_string(id));
                     cout << "Insert the UC you want to join\n";
                     cin>>str;
-                    temp.push_back(str);
+                    tempuc = str;
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
-
+                    if(!h.isValidUC(str)){
+                        cout << "Invalid UC\n";
+                        temp.clear();
+                        break;
+                    }
+                    temp.push_back(str);
                     cout << "Insert the class in the Uc you want to join\n";
                     cin>>str;
-                    temp.push_back(str);
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
-
+                    if(!h.isValidTurma(tempuc, str)){
+                        cout << "Invalid Class\n";
+                        temp.clear();
+                        break;
+                    }
+                    temp.push_back(str);
                     requests->push(temp);
                     temp.clear();
                     cout << "Request registered!\n";
@@ -148,8 +163,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                         }
                     }
                 }
-
-
+                changing = true;
                 break;
             case 3:
                 modo = "changeTurma";
@@ -170,16 +184,26 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     temp.push_back(to_string(id));
                     cout << "Insert the UC of the class you want to change\n";
                     cin >> str;
-                    temp.push_back(str);
+                    tempuc = str;
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
+                    if(!h.isValidUC(str)){
+                        temp.clear();
+                        cout << "Invalid UC \n";
+                        break;
+                    }
+                    temp.push_back(str);
 
                     cout << "Insert the class you want to change to\n";
                     cin >> str;
-                    temp.push_back(str);
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
-
+                    if(!h.isValidTurma(tempuc, str)){
+                        temp.clear();
+                        cout << "Invalid class \n";
+                        break;
+                    }
+                    temp.push_back(str);
                     requests->push(temp);
                     temp.clear();
                     cout << "Request registered!\n";
@@ -207,6 +231,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                         }
                     }
                 }
+                changing = true;
                 break;
             case 4:
                 str = "removeAllUC";
@@ -248,10 +273,14 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
 
                 cout << "Insert the UC you want to check the schedule of\n";
                 cin>>str;
-                students.showStudentUCHor(id, str, h.getHorarios());
-                cout << "\n";
                 cin.clear();
                 cin.ignore(INT_MAX, '\n');
+                if(!h.isValidUC(str)){
+                    cout << "Invalid UC! \n";
+                    break;
+                }
+                students.showStudentUCHor(id, str, h.getHorarios());
+                cout << "\n";
                 break;
             case 6:
                 cout << "Insert your Student ID or Name:\n";
@@ -268,28 +297,32 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cin.ignore(INT_MAX, '\n');
 
                 students.showStudentHorario(id, h.getHorarios());
-                cin.clear();
-                cin.ignore(INT_MAX, '\n');
                 break;
         }
     }
 }
-
+/**
+ * Menu para ver as listagens
+ * @param students
+ * @param h
+ */
 void menuAdm(BSTudents students, GestaoHor h){
     bool canRun = true;
-    int input;
+    int n;
     while(canRun){
+        int input;
         cout << "Choose want you want to do: \n"
-                "1: Show every student\n"
-                "2: Show every UCs\n"
+                "1: Show Student...\n"
+                "2: Show every UCs, class and respective schedule\n"
+                "3: \n"
                 "0: Return\n";
         while(!(cin >> input)){
             cout << "Invalid input!\n\n";
             cin.clear();
             cin.ignore(INT_MAX, '\n');
             cout <<"Choose want you want to do: \n"
-                   "1: Show every student\n"
-                   "2: Show every UCs\n";
+                   "1: Show Student...\n"
+                   "2: Show every UCs, class and respective schedule\n";
         }
         switch(input){
             case 0:
@@ -297,21 +330,45 @@ void menuAdm(BSTudents students, GestaoHor h){
                 break;
             case 1:
                 cout << "How do you want to see?\n"
-                        "1: Ordered by Student ID\n"
-                        "2: Ordered by Name\n";
+                        "1: Every student ordered by Student ID\n"
+                        "2: Every student ordered by Name\n"
+                        "3: With more than n UCs\n";
                 while(!(cin >> input)){
                     cout << "Invalid input!\n\n";
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
                     cout <<"How do you want to see?\n"
-                           "1: Ordered by Student ID\n"
-                           "2: Ordered by Name\n";
+                           "1: Every student ordered by Student ID\n"
+                           "2: Every student ordered by Name\n"
+                           "3: With more than n UCs\n";
                 }
                 if(input == 1) students.showAllStudentCodes();
                 else if(input == 2) students.showAllStudentNames();
+                else if(input == 3){
+                    cout << "Input n: ";
+                    cin >> n;
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    students.showStudentsNUCs(n);
+                    cout << "\n";
+                }
+                else cout << "Invalid input";
+                break;
+            case 2:
+                h.showUCTandHorario();
+                break;
+            case 3:
+                break;
         }
     }
 }
+/**
+ * Menu para processar os pedidos relativos a mudanças de turmas, etc.
+ * @param requests
+ * @param students
+ * @param h
+ * @param failedr
+ */
 void processrequests(queue<vector<string>>*requests,BSTudents *students,GestaoHor *h,queue<vector<string>>*failedr){
     int size=requests->size();
     vector<string> temp;
@@ -354,18 +411,24 @@ void processrequests(queue<vector<string>>*requests,BSTudents *students,GestaoHo
         requests->pop();
     }
 }
+/**
+ * Menu principal. Inicializa as BSTs e outros objetos
+ * @return
+ */
 int main() {
     GestaoHor h = GestaoHor();
     h.insertTurmas();
     h.insertSchedule();
-    cout<<"Insert File name with extension:";
-    string file;
-    cin>>file;
+    //cout<<"Insert File name with extension:";
+    //string file;
+    //cin>>file;
+    string file="students_classes.csv";
     BSTudents students = BSTudents(); // inicializa BST de students
     students.insertStudents(&h,file); // insere todos os students
     queue<vector<string>> requests;
     queue<vector<string>> failedr;
     vector<string> temp;
+
     string str;
     int input1;
     bool canRun = true;
@@ -398,6 +461,7 @@ int main() {
             case 3:
                 processrequests(&failedr,&students,&h,&failedr);
                 processrequests(&requests,&students,&h,&failedr);
+                students.output();
                 break;
             default:
                 cout << "Invalid input!\n\n";
@@ -405,7 +469,6 @@ int main() {
                 cin.ignore(INT_MAX, '\n');
                 break;
         }
-
     }
 
 
@@ -413,13 +476,6 @@ int main() {
 }
 
 /*Falta:
- * Escrever/guardar mudanças em ficheiros
- * Alterar um conjunto de turmas/uc -> Done ig???
  * Ordenação de Listagens
- * Estudantes com mais de n UCs
- * Doxygen + indicar complexidade
- */
-
-/*Obrigatorio
- *doxigen
- */
+ * debug
+ * */

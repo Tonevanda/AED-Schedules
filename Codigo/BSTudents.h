@@ -14,6 +14,7 @@ private:
 public:
     BSTudents() {NULL;};
     void insertStudents(GestaoHor *h,string file);
+    void output();
 
     bool idValid(int id);
 
@@ -40,6 +41,8 @@ public:
     void showAllStudentsinTurma(string turma);
     void showAllStudentsinUCTurma(string uc, string turma);
     void showAllStudentsinYear(char year);
+
+    void showStudentsNUCs(int n);
 
     void showAllStudentCodes();
     void showAllStudentNames();

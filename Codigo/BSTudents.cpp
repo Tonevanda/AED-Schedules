@@ -4,8 +4,12 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <iostream>
+#include <Set>
+
 /**
  * Encontra turma x num vetor de turmas arr com binary search
+ * Time-complexity -> O(log(n))
  * @param arr
  * @param x
  * @return
@@ -21,9 +25,26 @@ int find(vector<UCTurma>arr, UCTurma x){
     }
     return 0;
 }
-
+/**
+ * Escreve no ficheiro output os dados atualizados dos estudantes (com as novas UCs e turmas)
+ * Time-complexity -> O(n^2)
+ */
+void BSTudents::output(){
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    ofstream output;
+    output.open("../output.csv");
+    output<<"StudentCode,StudentName,UcCode,ClassCode\n";
+    while(!it.isAtEnd()){
+        for(auto it2:it.retrieve().getCourses()){
+            output << it.retrieve().getStudentCode()<<","<<it.retrieve().getStudentName()<<","<<it2.getUC()<<","<<it2.getTurma()<< "\n";
+        }
+        it.advance();
+    }
+    output.close();
+}
 /**
  * Lê os dados do ficheiro e insere os dados dos estudantes na BST correspondente
+ * Time-complexity -> O(nlog(n))
  * @param h
  */
 void BSTudents::insertStudents(GestaoHor *h,string file) {
@@ -32,13 +53,13 @@ void BSTudents::insertStudents(GestaoHor *h,string file) {
     fout.open(file);
     string tempstream,StudentCode,StudentName,UcCode,ClassCode;
     getline (fout, tempstream);
-
     while (getline (fout, tempstream)) {
         stringstream it_stream(tempstream);
         getline(it_stream,StudentCode,',');
         getline(it_stream,StudentName,',');
         getline(it_stream,UcCode,',');
         getline(it_stream,ClassCode,'\r');
+
         int intStudentCode=stoi(StudentCode, nullptr,10);
         Student student = Student(intStudentCode,StudentName);
         UCTurma ucturma = UCTurma(UcCode, ClassCode);
@@ -59,6 +80,7 @@ void BSTudents::insertStudents(GestaoHor *h,string file) {
 }
 /**
  * Verifica se o ID passado como input existe na BST de estudantes
+ * Time-complexity -> O(log(n))
  * @param id
  * @return
  */
@@ -70,6 +92,7 @@ bool BSTudents::idValid(int id) {
 }
 /**
  * Adiciona uma UC a um estudante e atualiza os seus dados na BST
+ * Time-complexity -> O(log(n))
  * @param id
  * @param uc
  * @param turma
@@ -96,6 +119,7 @@ bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
 }
 /**
  * Remove uma UC de um estudante e atualiza os seus dados na BST
+ * Time-complexity -> O(log(n))
  * @param id
  * @param uc
  * @param h
@@ -119,6 +143,7 @@ void BSTudents::removeUC(int id, std::string uc, GestaoHor* h) {
 }
 /**
  * Igual à função anterior mas desta vez utiliza também a turma antiga como parametro
+ * Time-complexity -> O(log(n))
  * @param id
  * @param uc
  * @param oldTurma
@@ -143,6 +168,7 @@ void BSTudents::removeUC(int id, std::string uc, string oldTurma, GestaoHor* h) 
 }
 /**
  * Muda a turma de um estudante e atualiza os seus dados na BST
+ * Time-complexity -> O(log(n))
  * @param id
  * @param Uc
  * @param novaTurma
@@ -158,14 +184,16 @@ bool BSTudents::changeTurma(int id, std::string Uc, string novaTurma, GestaoHor 
     temp = uct[pos];
     string oldTurma = temp.getTurma();
 
-    if(addUC(id, Uc, novaTurma, *&h)){
-        removeUC(id, Uc, oldTurma, *&h);
-        return true;
+    removeUC(id, Uc, oldTurma, *&h);
+    if(!addUC(id, Uc, novaTurma, *&h)){
+        addUC(id, Uc, oldTurma, h);
+        return false;
     }
-    return false;
+    return true;
 }
 /**
  * Remove todas as UCs de um estudante e atualiza os seus dados na BST
+ * Time-complexity -> O(n)
  * @param id
  * @param uc
  * @param h
@@ -179,6 +207,7 @@ void BSTudents::removeAllUC(int id, GestaoHor *h) {
 }
 /**
  * Itera sobre a BST de estudantes e retorna o ID correspondente ao nome inserido
+ * Time-complexity -> O(n)
  * @param name
  * @return
  */
@@ -195,6 +224,7 @@ int BSTudents::getStudentId(string name) const {
 }
 /**
  * Retorna o nome do aluno correspondente ao ID inserido
+ * Time-complexity -> O(log(n))
  * @param id
  * @return
  */
@@ -204,6 +234,7 @@ string BSTudents::getStudentName(int id) const {
 }
 /**
  * Retorna um vetor com as UCTurmas (UC e turma correspondente) do aluno correspondente ao ID inserido
+ * Time-complexity -> O(log(n))
  * @param id
  * @return
  */
@@ -214,6 +245,7 @@ vector<UCTurma> BSTudents::getStudentUCTurma(int id) const {
 }
 /**
  * Retorna uma string com todas as UCs em que o aluno correspondente ao ID inserido está inscrito
+ * Time-complexity -> O(n)
  * @param id
  * @return
  */
@@ -230,6 +262,7 @@ string BSTudents::getStudentUCs(int id) const{
 /**
  * Retorna uma string com todas as UCs e turmas correspondentes nas quais o estudante correspondente
  * ao ID inserido está inscrito
+ * Time-complexity -> O(n)
  * @param id
  * @return
  */
@@ -245,6 +278,7 @@ string BSTudents::getStudentUCTs(int id) const{
 }
 /**
  * Printa o horario de uma UC e o seu tipo (T, TP ou PL)
+ * Time-complexity -> O(log(n))
  * @param id
  * @param ucCode
  * @param h
@@ -263,6 +297,7 @@ void BSTudents::showStudentUCHor(int id, string ucCode, BST<TurmaH> h){
 }
 /**
  * Printa todas as UCs de um estudante correspondente ao ID inserido
+ * Time-complexity -> O(n)
  * @param id
  */
 void BSTudents::showStudentUCs(int id) {
@@ -275,6 +310,7 @@ void BSTudents::showStudentUCs(int id) {
 }
 /**
  * Printa todas as turmas de um estudante correspondente ao ID inserido
+ * Time-complexity -> O(n)
  * @param id
  */
 void BSTudents::showStudentClasses(int id) {
@@ -288,6 +324,7 @@ void BSTudents::showStudentClasses(int id) {
 }
 /**
  * Printa todas as UCs e turmas correspondentes de um estudante correspondente ao ID inserido
+ * Time-complexity -> O(n)
  * @param id
  */
 void BSTudents::showStudentUCTurma(int id) {
@@ -300,6 +337,7 @@ void BSTudents::showStudentUCTurma(int id) {
 }
 /**
  * Printa o horário completo do estudante correspondente ao ID inserido
+ * Time-complexity -> O(nlog(n))
  * @param id
  * @param h
  */
@@ -317,6 +355,7 @@ void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
 }
 /**
  * Printa todos os estudantes (ID e nome) inscritos na UC inserida
+ * Time-complexity -> O(n^2)
  * @param uc
  */
 void BSTudents::showAllStudentsinUC(string uc){
@@ -331,6 +370,7 @@ void BSTudents::showAllStudentsinUC(string uc){
 }
 /**
  * Printa todos os estudantes (ID e nome) inscritos na turma inserida
+ * Time-complexity -> O(n^2)
  * @param turma
  */
 void BSTudents::showAllStudentsinTurma(string turma){
@@ -353,6 +393,7 @@ void BSTudents::showAllStudentsinTurma(string turma){
 }
 /**
  * Printa todos os estudantes (ID e nome) inscritos na UC e turma inseridas
+ * Time-complexity -> O(n^2)
  * @param uc
  * @param turma
  */
@@ -368,6 +409,7 @@ void BSTudents::showAllStudentsinUCTurma(std::string uc, std::string turma) {
 }
 /**
  * Printa todos os estudantes (ID e nome) matriculados no ano inserido
+ * Time-complexity -> O(n^2)
  * @param year
  */
 void BSTudents::showAllStudentsinYear(char year){
@@ -389,29 +431,52 @@ void BSTudents::showAllStudentsinYear(char year){
     }
 }
 /**
- * Printa o ID de todos os estudantes
+ * Printa todos os estudantes com mais de n UCs
+ * Time-complexity -> O(n)
+ * @param n
+ */
+void BSTudents::showStudentsNUCs(int n) {
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    int count = 0;
+    while(!it.isAtEnd()){
+        if(it.retrieve().getCourses().size() >= n){
+            count++;
+        }
+        it.advance();
+    }
+    cout << "There are " << count << " students with more than " << n << " UCs!\n";
+}
+
+/**
+ * Printa o ID e nome de todos os estudantes organizado pelo ID
+ * Time-complexity -> O(n)
  */
 void BSTudents::showAllStudentCodes() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
-        cout << "Student: " << it.retrieve().getStudentCode() << ", " << it.retrieve().getStudentName();
+        cout << "Student: " << it.retrieve().getStudentCode() << ", " << it.retrieve().getStudentName() << "\n";
         it.advance();
     }
 }
 /**
- * Printa o nome de todos os estudantes
+ * Printa o ID e nome de todos os estudantes organizado pelo nome
+ * Time-complexity -> O(nlog(n))
  */
 void BSTudents::showAllStudentNames() {
-    Set<string> sete;
+    set<pair<string, int>> sete;
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
-        sete.insert
-        cout << it.retrieve().getStudentName() << "\n";
+        pair<string, int> par = {it.retrieve().getStudentName(), it.retrieve().getStudentCode()};
+        sete.insert(par);
         it.advance();
+    }
+    for(auto iter: sete){
+        cout << "Student: " << iter.first << ", " << iter.second <<"\n";
     }
 }
 /**
  * Printa todos os estudantes (ID e nome) e as suas respetivas UCs e turmas
+ * Time-complexity -> O(n^2)
  */
 void BSTudents::showAllStudents() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);

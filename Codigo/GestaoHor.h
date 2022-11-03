@@ -19,6 +19,9 @@ public:
     void insertTurmas();
     void insertSchedule();
 
+    bool isValidUC(string UcCode);
+    bool isValidTurma(string UcCode, string classCode);
+
     bool addAluno(TurmaH turma);
     bool addAluno(string UcCode, string ClassCode);
     void removeAluno(TurmaH turma);
