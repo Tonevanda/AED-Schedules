@@ -21,6 +21,7 @@ public:
     void removeUC(int id, string uc, GestaoHor *h);
     void removeUC(int id, string uc, string oldTurma, GestaoHor *h);
     bool changeTurma(int id, string Uc, string NovaTurma, GestaoHor* h);
+    void removeAllUC(int id, GestaoHor *h);
 
     int getStudentId(string name) const;
     string getStudentName(int id) const;
@@ -38,6 +39,7 @@ public:
     void showAllStudentsinUC(string uc);
     void showAllStudentsinTurma(string turma);
     void showAllStudentsinUCTurma(string uc, string turma);
+    void showAllStudentsinYear(char year);
 
     void showAllStudentCodes();
     void showAllStudentNames();

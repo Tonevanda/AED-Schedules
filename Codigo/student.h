@@ -26,6 +26,7 @@ public:
     void addCourse(string UC, string Turma);
     void addCourse(UCTurma course);
     void removeCourse(UCTurma course);
+    void clearCourse();
 
     int getStudentCode() const;
     string getStudentName() const;

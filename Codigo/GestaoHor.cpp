@@ -7,7 +7,9 @@
 #include <sstream>
 #include <string>
 #include <iostream>
-
+/**
+ * Lê o ficheiro e insere as turmas lidas na BST correspondente
+ */
 void GestaoHor::insertTurmas() {
     ifstream fout;
     fout.open("../classes_per_uc.csv");
@@ -101,11 +103,11 @@ bool GestaoHor::canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH old
     }
 
     if(turma.getnAlunos()>= 30){
-        cout << "Class is full";
+        cout << "Class is full\n";
         return false;
     }
     else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4 || turma.getnAlunos()+1 - oldTurmaAlunos-1 >= 4){
-        cout << "You cannot join this class since it would cause an imbalance of students between the classes";
+        cout << "You cannot join this class since it would cause an imbalance of students between the classes\n";
         return false;
     }
 
@@ -117,7 +119,7 @@ bool GestaoHor::canChangeTurma(TurmaH turma, vector<UCTurma> Courses, TurmaH old
                 for(auto horNovo : turma.getHorario()){
                     if(horNovo.getDiaDaSemana() == horario_antigo.getDiaDaSemana() && horNovo.getTipo() != "T"){
                         if(horario_antigo.getHorarioInicio() < horNovo.getHorarioFim() && horario_antigo.getHorarioInicio()>=horNovo.getHorarioInicio()){ //10.50 < 11:50 && 10.50 >= 9:50
-                            cout << "You cannot change classes since the schedules would overlap";
+                            cout << "You cannot change classes since the schedules would overlap\n";
                             return false;
                         }
                     }
@@ -141,11 +143,11 @@ bool GestaoHor::canChangeTurma(string UcCode, string ClassCode,vector<UCTurma> C
     }
 
     if(turma.getnAlunos()>= 30){
-        cout << "Class is full";
+        cout << "Class is full\n";
         return false;
     }
     else if(turma.getnAlunos()+1 - findMinAlunos(turma.getCodUc()) >= 4 || turma.getnAlunos()+1 - oldTurmaAlunos-1 >= 4){
-        cout << "You cannot join this class since it would cause an imbalance of students between the classes";
+        cout << "You cannot join this class since it would cause an imbalance of students between the classes\n";
         return false;
     }
 
@@ -157,7 +159,7 @@ bool GestaoHor::canChangeTurma(string UcCode, string ClassCode,vector<UCTurma> C
                 for(auto horNovo : turma.getHorario()){
                     if(horNovo.getDiaDaSemana() == horario_antigo.getDiaDaSemana() && horNovo.getTipo() != "T"){
                         if(horario_antigo.getHorarioInicio() < horNovo.getHorarioFim() && horario_antigo.getHorarioInicio()>=horNovo.getHorarioInicio()){ //10.50 < 11:50 && 10.50 >= 9:50
-                            cout << "You cannot change classes since the schedules would overlap";
+                            cout << "You cannot change classes since the schedules would overlap\n";
                             return false;
                         }
                     }

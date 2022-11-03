@@ -4,7 +4,12 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
-
+/**
+ * Encontra turma x num vetor de turmas arr com binary search
+ * @param arr
+ * @param x
+ * @return
+ */
 int find(vector<UCTurma>arr, UCTurma x){
     int low=0;
     int high=arr.size();
@@ -14,9 +19,13 @@ int find(vector<UCTurma>arr, UCTurma x){
         else if (x > arr[mid]) low = mid + 1;
         else  high = mid - 1;
     }
+    return 0;
 }
 
-
+/**
+ * Lê os dados do ficheiro e insere os dados dos estudantes na BST correspondente
+ * @param h
+ */
 void BSTudents::insertStudents(GestaoHor *h) {
     ifstream fout;
     fout.open("../students_classes.csv");
@@ -47,14 +56,25 @@ void BSTudents::insertStudents(GestaoHor *h) {
     }
     fout.close();
 }
-
+/**
+ * Verifica se o ID passado como input existe na BST de estudantes
+ * @param id
+ * @return
+ */
 bool BSTudents::idValid(int id) {
     Student student = Student(id, "");
     student = students.find(student);
     if(student.getStudentName() == "") return false;
     return true;
 }
-
+/**
+ * Adiciona uma UC a um estudante e atualiza os seus dados na BST
+ * @param id
+ * @param uc
+ * @param turma
+ * @param h
+ * @return
+ */
 bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -73,7 +93,12 @@ bool BSTudents::addUC(int id, string uc, string turma, GestaoHor *h) {
     return true;
 
 }
-
+/**
+ * Remove uma UC de um estudante e atualiza os seus dados na BST
+ * @param id
+ * @param uc
+ * @param h
+ */
 void BSTudents::removeUC(int id, std::string uc, GestaoHor* h) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -91,6 +116,13 @@ void BSTudents::removeUC(int id, std::string uc, GestaoHor* h) {
     turma = h->getHorarios().find(turma);
     h->removeAluno(turma);
 }
+/**
+ * Igual à função anterior mas desta vez utiliza também a turma antiga como parametro
+ * @param id
+ * @param uc
+ * @param oldTurma
+ * @param h
+ */
 void BSTudents::removeUC(int id, std::string uc, string oldTurma, GestaoHor* h) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -99,6 +131,7 @@ void BSTudents::removeUC(int id, std::string uc, string oldTurma, GestaoHor* h) 
     UCTurma temp = UCTurma(uc, oldTurma);
     int pos=find(uct,temp);
     temp = uct[pos];
+
     students.remove(student);
     student.removeCourse(temp);
     students.insert(student);
@@ -107,6 +140,14 @@ void BSTudents::removeUC(int id, std::string uc, string oldTurma, GestaoHor* h) 
     turma = h->getHorarios().find(turma);
     h->removeAluno(turma);
 }
+/**
+ * Muda a turma de um estudante e atualiza os seus dados na BST
+ * @param id
+ * @param Uc
+ * @param novaTurma
+ * @param h
+ * @return
+ */
 bool BSTudents::changeTurma(int id, std::string Uc, string novaTurma, GestaoHor *h) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -122,7 +163,24 @@ bool BSTudents::changeTurma(int id, std::string Uc, string novaTurma, GestaoHor 
     }
     return false;
 }
-
+/**
+ * Remove todas as UCs de um estudante e atualiza os seus dados na BST
+ * @param id
+ * @param uc
+ * @param h
+ */
+void BSTudents::removeAllUC(int id, GestaoHor *h) {
+    Student student = Student(id, "");
+    student = students.find(student);
+    students.remove(student);
+    student.clearCourse();
+    students.insert(student);
+}
+/**
+ * Itera sobre a BST de estudantes e retorna o ID correspondente ao nome inserido
+ * @param name
+ * @return
+ */
 int BSTudents::getStudentId(string name) const {
     BSTItrIn<Student> it = BSTItrIn<Student>(students);
     while (!it.isAtEnd()) {
@@ -134,15 +192,30 @@ int BSTudents::getStudentId(string name) const {
     }
     return 0;
 }
+/**
+ * Retorna o nome do aluno correspondente ao ID inserido
+ * @param id
+ * @return
+ */
 string BSTudents::getStudentName(int id) const {
     Student student = Student(id, "");
     return students.find(student).getStudentName();
 }
+/**
+ * Retorna um vetor com as UCTurmas (UC e turma correspondente) do aluno correspondente ao ID inserido
+ * @param id
+ * @return
+ */
 vector<UCTurma> BSTudents::getStudentUCTurma(int id) const {
     Student student = Student(id, "");
     student = students.find(student);
     return student.getCourses();
 }
+/**
+ * Retorna uma string com todas as UCs em que o aluno correspondente ao ID inserido está inscrito
+ * @param id
+ * @return
+ */
 string BSTudents::getStudentUCs(int id) const{
     Student student = Student(id, "");
     student = students.find(student);
@@ -151,14 +224,14 @@ string BSTudents::getStudentUCs(int id) const{
     for(auto it:UCT){
         out << it.getUC();
     }
-    /*
-    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
-    while(!it.isAtEnd()){
-        out << it.retrieve().getUC();
-        it.advance();
-    }*/
     return out.str();
 }
+/**
+ * Retorna uma string com todas as UCs e turmas correspondentes nas quais o estudante correspondente
+ * ao ID inserido está inscrito
+ * @param id
+ * @return
+ */
 string BSTudents::getStudentUCTs(int id) const{
     Student student = Student(id, "");
     student = students.find(student);
@@ -167,28 +240,30 @@ string BSTudents::getStudentUCTs(int id) const{
     for(auto it:UCT){
         out << it.getUC()<< "," << it.getTurma() << ",";;
     }
-    /*
-    BSTItrIn<UCTurma> it = BSTItrIn<UCTurma> (UCT);
-    while(!it.isAtEnd()){
-        out << it.retrieve().getUC() << "," << it.retrieve().getTurma() << ",";
-        it.advance();
-    }*/
     return out.str();
 }
-
+/**
+ * Printa o horario de uma UC e o seu tipo (T, TP ou PL)
+ * @param id
+ * @param ucCode
+ * @param h
+ */
 void BSTudents::showStudentUCHor(int id, string ucCode, BST<TurmaH> h){
     Student student = Student(id, "");
     student = students.find(student);
     vector<UCTurma> UCT = student.getCourses();
     UCTurma temp = UCTurma(ucCode, "");
-    int pos=find(UCT,temp);
+    int pos = find(UCT,temp);
     temp = UCT[pos];
 
     TurmaH turmah = TurmaH(temp.getUC(), temp.getTurma());
     turmah = h.find(turmah);
     turmah.showHorario();
 }
-
+/**
+ * Printa todas as UCs de um estudante correspondente ao ID inserido
+ * @param id
+ */
 void BSTudents::showStudentUCs(int id) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -197,6 +272,10 @@ void BSTudents::showStudentUCs(int id) {
         cout << it.getUC()<<"\n";
     }
 }
+/**
+ * Printa todas as turmas de um estudante correspondente ao ID inserido
+ * @param id
+ */
 void BSTudents::showStudentClasses(int id) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -206,6 +285,10 @@ void BSTudents::showStudentClasses(int id) {
     }
 
 }
+/**
+ * Printa todas as UCs e turmas correspondentes de um estudante correspondente ao ID inserido
+ * @param id
+ */
 void BSTudents::showStudentUCTurma(int id) {
     Student student = Student(id, "");
     student = students.find(student);
@@ -214,6 +297,11 @@ void BSTudents::showStudentUCTurma(int id) {
         cout << it.getUC() << " " << it.getTurma() << " ";
     }
 }
+/**
+ * Printa o horário completo do estudante correspondente ao ID inserido
+ * @param id
+ * @param h
+ */
 void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
     Student student = Student(id, "");
     student = students.find(student);
@@ -226,7 +314,10 @@ void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
         cout << "\n";
     }
 }
-
+/**
+ * Printa todos os estudantes (ID e nome) inscritos na UC inserida
+ * @param uc
+ */
 void BSTudents::showAllStudentsinUC(string uc){
     BSTItrIn<Student> it = BSTItrIn<Student>(students);
     while(!it.isAtEnd()){
@@ -237,18 +328,33 @@ void BSTudents::showAllStudentsinUC(string uc){
         it.advance();
     }
 }
-
+/**
+ * Printa todos os estudantes (ID e nome) inscritos na turma inserida
+ * @param turma
+ */
 void BSTudents::showAllStudentsinTurma(string turma){
+    bool flag = false;
     BSTItrIn<Student> it = BSTItrIn<Student>(students);
     while(!it.isAtEnd()){
         vector<UCTurma> uct = it.retrieve().getCourses();
         for(auto k: uct){
-            if(k.getTurma() == turma) cout << it.retrieve().getStudentCode() << "---" << it.retrieve().getStudentName() << "\n";
+            if(k.getTurma() == turma) {
+                cout << it.retrieve().getStudentCode() << "---" << it.retrieve().getStudentName() << "\n";
+                flag = true;
+            }
+            if(flag == true){
+                flag = false;
+                break;
+            }
         }
         it.advance();
     }
 }
-
+/**
+ * Printa todos os estudantes (ID e nome) inscritos na UC e turma inseridas
+ * @param uc
+ * @param turma
+ */
 void BSTudents::showAllStudentsinUCTurma(std::string uc, std::string turma) {
     BSTItrIn<Student> it = BSTItrIn<Student>(students);
     while(!it.isAtEnd()){
@@ -259,7 +365,31 @@ void BSTudents::showAllStudentsinUCTurma(std::string uc, std::string turma) {
         it.advance();
     }
 }
-
+/**
+ * Printa todos os estudantes (ID e nome) matriculados no ano inserido
+ * @param year
+ */
+void BSTudents::showAllStudentsinYear(char year){
+    bool flag = false;
+    BSTItrIn<Student> it = BSTItrIn<Student>(students);
+    while(!it.isAtEnd()){
+        vector<UCTurma> uct = it.retrieve().getCourses();
+        for(auto k: uct){
+            if(k.getTurma()[0] == year) {
+                cout << it.retrieve().getStudentCode() << "---" << it.retrieve().getStudentName() << "\n";
+                flag = true;
+            }
+            if(flag == true){
+                flag = false;
+                break;
+            }
+        }
+        it.advance();
+    }
+}
+/**
+ * Printa o ID de todos os estudantes
+ */
 void BSTudents::showAllStudentCodes() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
@@ -267,6 +397,9 @@ void BSTudents::showAllStudentCodes() {
         it.advance();
     }
 }
+/**
+ * Printa o nome de todos os estudantes
+ */
 void BSTudents::showAllStudentNames() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
@@ -274,9 +407,9 @@ void BSTudents::showAllStudentNames() {
         it.advance();
     }
 }
-
-
-
+/**
+ * Printa todos os estudantes (ID e nome) e as suas respetivas UCs e turmas
+ */
 void BSTudents::showAllStudents() {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     while(!it.isAtEnd()){
