@@ -430,12 +430,28 @@ void BSTudents::showAllStudentsinYear(char year){
         it.advance();
     }
 }
+
 /**
  * Printa todos os estudantes com mais de n UCs
  * Time-complexity -> O(n)
  * @param n
  */
 void BSTudents::showStudentsNUCs(int n) {
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    while(!it.isAtEnd()){
+        if(it.retrieve().getCourses().size() >= n){
+            cout << it.retrieve().getStudentCode() << "---" << it.retrieve().getStudentName() << "\n";
+        }
+        it.advance();
+    }
+}
+
+/**
+ * Printa o numero de estudantes com mais de n UCs
+ * Time-complexity -> O(n)
+ * @param n
+ */
+void BSTudents::shownStudentsNUCs(int n) {
     BSTItrIn<Student> it = BSTItrIn<Student> (students);
     int count = 0;
     while(!it.isAtEnd()){
@@ -474,6 +490,7 @@ void BSTudents::showAllStudentNames() {
         cout << "Student: " << iter.first << ", " << iter.second <<"\n";
     }
 }
+
 /**
  * Printa todos os estudantes (ID e nome) e as suas respetivas UCs e turmas
  * Time-complexity -> O(n^2)

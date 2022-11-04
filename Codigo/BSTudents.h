@@ -43,6 +43,7 @@ public:
     void showAllStudentsinYear(char year);
 
     void showStudentsNUCs(int n);
+    void shownStudentsNUCs(int n);
 
     void showAllStudentCodes();
     void showAllStudentNames();

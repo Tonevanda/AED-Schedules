@@ -314,7 +314,7 @@ void menuAdm(BSTudents students, GestaoHor h){
         cout << "Choose want you want to do: \n"
                 "1: Show Student...\n"
                 "2: Show every UCs, class and respective schedule\n"
-                "3: \n"
+                "3: Show the number of...\n"
                 "0: Return\n";
         while(!(cin >> input)){
             cout << "Invalid input!\n\n";
@@ -322,7 +322,9 @@ void menuAdm(BSTudents students, GestaoHor h){
             cin.ignore(INT_MAX, '\n');
             cout <<"Choose want you want to do: \n"
                    "1: Show Student...\n"
-                   "2: Show every UCs, class and respective schedule\n";
+                   "2: Show every UCs, class and respective schedule\n"
+                   "3: Show the number of...\n"
+                   "0: Return\n";
         }
         switch(input){
             case 0:
@@ -332,7 +334,11 @@ void menuAdm(BSTudents students, GestaoHor h){
                 cout << "How do you want to see?\n"
                         "1: Every student ordered by Student ID\n"
                         "2: Every student ordered by Name\n"
-                        "3: With more than n UCs\n";
+                        "3: Every student in an Uc/Class combination\n"
+                        "4: Every student in an Uc\n"
+                        "5: Every student in a Class \n"
+                        "6: Every student in an year\n"
+                        "7: With more than n UCs\n";
                 while(!(cin >> input)){
                     cout << "Invalid input!\n\n";
                     cin.clear();
@@ -340,24 +346,133 @@ void menuAdm(BSTudents students, GestaoHor h){
                     cout <<"How do you want to see?\n"
                            "1: Every student ordered by Student ID\n"
                            "2: Every student ordered by Name\n"
-                           "3: With more than n UCs\n";
+                           "3: Every student in an Uc/Class combination\n"
+                           "4: Every student in an Uc\n"
+                           "5: Every student in a Class\n"
+                           "6: Every student in an year\n"
+                           "7: With more than n UCs\n";
                 }
-                if(input == 1) students.showAllStudentCodes();
-                else if(input == 2) students.showAllStudentNames();
-                else if(input == 3){
-                    cout << "Input n: ";
-                    cin >> n;
-                    cin.clear();
-                    cin.ignore(INT_MAX, '\n');
-                    students.showStudentsNUCs(n);
-                    cout << "\n";
+                switch (input) {
+                    case 1:students.showAllStudentCodes();break;
+                    case 2:students.showAllStudentNames();break;
+                    case 3:{
+                        string uc,turma;
+                        cout << "Input Uc:";
+                        cin >> uc;
+                        cout<<"Input turma:";
+                        cin>>turma;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        students.showAllStudentsinUCTurma(uc,turma);
+                        break;
+                    }
+                    case 4:{
+                        string uc;
+                        cout << "Input Uc:";
+                        cin >> uc;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        students.showAllStudentsinUC(uc);
+                        break;
+                    }
+                    case 5: {
+                        string turma;
+                        cout << "Input Class:";
+                        cin >> turma;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        students.showAllStudentsinTurma(turma);
+                        break;
+                    }
+                    case 6:{
+                        char year;
+                        cout << "Input year: (1,2,3,...) \n";
+                        cin >> year;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        students.showAllStudentsinYear(year);
+                        cout << "\n";
+                        break;
+                    }
+                    case 7:{
+                        cout << "Input n: ";
+                        cin >> n;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        students.showStudentsNUCs(n);
+                        cout << "\n";
+                        break;
+                    }
+                    default: cout << "Invalid input \n";break;
                 }
-                else cout << "Invalid input";
                 break;
             case 2:
                 h.showUCTandHorario();
                 break;
             case 3:
+                cout << "1: Students in an UC\n"
+                        "2: Students in an UC/Class combo\n"
+                        "3: Students with more than n UCs";
+                while(!(cin >> input)) {
+                    cout << "Invalid input!\n\n";
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "1: Students in an UC\n"
+                            "2: Students in an UC/Class combo\n"
+                            "3: Students with more than n UCs";
+                }
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+                switch(input) {
+                    case 1: {
+                        string uc;
+                        cout << "Input UC: ";
+                        cin >> uc;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        if (!h.isValidUC(uc)) {
+                            cout << "Invalid UC! \n";
+                            break;
+                        }
+                        h.shownAlunosUC(uc);
+                        cout << "\n";
+                        break;
+                    }
+                    case 2: {
+                        string uc, turma;
+                        cout << "Input UC: ";
+                        cin >> uc;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        cout << "\n";
+                        if (!h.isValidUC(uc)) {
+                            cout << "Invalid UC! \n";
+                            break;
+                        }
+                        cout << "Input Class: ";
+                        cin >> turma;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        cout << "\n";
+                        if (!h.isValidTurma(uc, turma)) {
+                            cout << "Invalid Class! \n";
+                            break;
+                        }
+                        h.shownAlunos(uc, turma);
+                        cout << "\n";
+                        break;
+                    }
+                    case 3:{
+                        cout << "Input n: ";
+                        cin >> n;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        students.shownStudentsNUCs(n);
+                        cout << "\n";
+                        break;
+                    }
+                    default: cout << "Invalid Input! \n"; break;
+                }
                 break;
         }
     }
@@ -437,7 +552,7 @@ int main() {
                 "1: User\n"
                 "2: Listings\n"
                 "3: Process requests\n"
-                "0: Leave menu\n" << flush;
+                "0: Quit Program\n" << flush;
         while(!(cin >> input1)){
             cout << "Invalid input!\n\n";
             cin.clear();
@@ -446,7 +561,7 @@ int main() {
                    "1: User\n"
                    "2: Listings\n"
                    "3: Process requests\n"
-                   "0: Leave menu\n"<< flush;
+                   "0: Quit Program\n"<< flush;
         }
         switch(input1){
             case 0:

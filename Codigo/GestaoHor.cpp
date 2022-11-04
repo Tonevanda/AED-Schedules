@@ -86,7 +86,7 @@ bool GestaoHor::isValidTurma(string UcCode, string classCode){
     //if(!isValidUC(UcCode)) return false;
     TurmaH turmah = TurmaH(UcCode, classCode);
     turmah = horarios.find(turmah);
-    if(turmah.getHorario().size() == 0) return false;
+    if(turmah.getCodUc() == "") return false;
     return true;
 }
 /**
@@ -273,6 +273,7 @@ void GestaoHor::shownAlunosUC(string UcCode){
         if(it.retrieve().getCodUc() == UcCode){
             val += it.retrieve().getnAlunos();
         }
+        it.advance();
     }
     cout << "There are " << val << " students in " << UcCode << "\n";
 }
