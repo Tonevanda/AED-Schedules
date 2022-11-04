@@ -45,8 +45,10 @@ public:
     void showStudentsNUCs(int n);
     void shownStudentsNUCs(int n);
 
+    void showAllStudentsCodesReverse();
     void showAllStudentCodes();
     void showAllStudentNames();
+    void showAllStudentsNamesReverse();
     void showAllUC();
     void showAllClasses();
     void showAllStudents();

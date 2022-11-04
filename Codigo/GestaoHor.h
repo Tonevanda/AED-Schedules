@@ -30,6 +30,7 @@ public:
     bool canChangeTurma(string UcCode, string ClassCode, vector<UCTurma> Courses, string oldClassCode = "");
 
     int findMinAlunos(string UcCode);
+    void showAllUCinYear(char year);
 
     void shownAlunosUC(string UcCode);
     void shownAlunos(string UcCode, string ClassCode);

@@ -475,6 +475,22 @@ void BSTudents::showAllStudentCodes() {
     }
 }
 /**
+ * Printa o ID e nome de todos os estudantes organizado pelo ID de forma inversa
+ * Time-complexity -> O(nlog(n))
+ */
+void BSTudents::showAllStudentsCodesReverse() {
+    set<pair<int, string>> sete;
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    while(!it.isAtEnd()){
+        pair<int, string> par = {it.retrieve().getStudentCode(), it.retrieve().getStudentName()};
+        sete.insert(par);
+        it.advance();
+    }
+    for(auto iter = sete.rbegin(); iter != sete.rend(); iter++){
+        cout << "Student: " << iter->first << ", " << iter->second <<"\n";
+    }
+}
+/**
  * Printa o ID e nome de todos os estudantes organizado pelo nome
  * Time-complexity -> O(nlog(n))
  */
@@ -488,6 +504,19 @@ void BSTudents::showAllStudentNames() {
     }
     for(auto iter: sete){
         cout << "Student: " << iter.first << ", " << iter.second <<"\n";
+    }
+}
+
+void BSTudents::showAllStudentsNamesReverse() {
+    set<pair<string, int>> sete;
+    BSTItrIn<Student> it = BSTItrIn<Student> (students);
+    while(!it.isAtEnd()){
+        pair<string, int> par = {it.retrieve().getStudentName(), it.retrieve().getStudentCode()};
+        sete.insert(par);
+        it.advance();
+    }
+    for(auto iter = sete.rbegin(); iter != sete.rend(); iter++){
+        cout << "Student: " << iter->first << ", " << iter->second <<"\n";
     }
 }
 

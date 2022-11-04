@@ -262,6 +262,30 @@ int GestaoHor::findMinAlunos(std::string UcCode) {
     return min;
 }
 /**
+ * Printa todas as UCs num dado ano
+ * Time-complexity -> O(n)
+ * @param year
+ */
+void GestaoHor::showAllUCinYear(char year) {
+    bool flag = false;
+    string codUc;
+    BSTItrIn<TurmaH> it = BSTItrIn<TurmaH>(horarios);
+    while(!it.isAtEnd()) {
+        if (it.retrieve().getCodTurma()[0] == year) {
+            codUc = it.retrieve().getCodUc();
+            cout << codUc << "\n";
+        }
+        while (it.retrieve().getCodUc() == codUc) {
+            it.advance();
+            flag = true;
+        }
+        if (!flag) {
+            it.advance();
+        }
+        flag = false;
+    }
+}
+/**
  * Printa o número de alunos inscritos numa cadeira
  * Time-complexity -> O(n)
  * @param UcCode

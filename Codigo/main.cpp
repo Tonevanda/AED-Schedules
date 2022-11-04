@@ -21,6 +21,8 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 "4: Remove all UCs\n"
                 "5: Check schedule of an UC\n"
                 "6: Check full schedule\n"
+                "7: Check UC and respective classes\n"
+                "8: Show your Uc\n"
                 "0: Go back\n";
         while(!(cin >> input)){
             cout << "Invalid input!\n\n";
@@ -33,6 +35,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     "4: Remove all UCs\n"
                     "5: Check schedule of an UC\n"
                     "6: Check full schedule\n"
+                    "7: Check UC and respective classes\n"
                     "0: Go back\n";
         }
         switch(input){
@@ -298,6 +301,16 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
 
                 students.showStudentHorario(id, h.getHorarios());
                 break;
+            case 8:{
+                string n;
+                cout << "Input n: ";
+                cin >> n;
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+                students.showStudentUCs(stoi(n));
+                cout << "\n";
+                break;
+            }
         }
     }
 }
@@ -313,7 +326,7 @@ void menuAdm(BSTudents students, GestaoHor h){
         int input;
         cout << "Choose want you want to do: \n"
                 "1: Show Student...\n"
-                "2: Show every UCs, class and respective schedule\n"
+                "2: Show UCs, Class, Schedule...\n"
                 "3: Show the number of...\n"
                 "0: Return\n";
         while(!(cin >> input)){
@@ -322,10 +335,12 @@ void menuAdm(BSTudents students, GestaoHor h){
             cin.ignore(INT_MAX, '\n');
             cout <<"Choose want you want to do: \n"
                    "1: Show Student...\n"
-                   "2: Show every UCs, class and respective schedule\n"
+                   "2: Show UCs, Class, Schedule...\n"
                    "3: Show the number of...\n"
                    "0: Return\n";
         }
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
         switch(input){
             case 0:
                 canRun = false;
@@ -338,7 +353,9 @@ void menuAdm(BSTudents students, GestaoHor h){
                         "4: Every student in an Uc\n"
                         "5: Every student in a Class \n"
                         "6: Every student in an year\n"
-                        "7: With more than n UCs\n";
+
+                        "8: With more than n UCs\n"
+                        "0: Return \n";
                 while(!(cin >> input)){
                     cout << "Invalid input!\n\n";
                     cin.clear();
@@ -350,15 +367,64 @@ void menuAdm(BSTudents students, GestaoHor h){
                            "4: Every student in an Uc\n"
                            "5: Every student in a Class\n"
                            "6: Every student in an year\n"
-                           "7: With more than n UCs\n";
+                           "8: With more than n UCs\n"
+                           "0: Return \n";
                 }
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
                 switch (input) {
-                    case 1:students.showAllStudentCodes();break;
-                    case 2:students.showAllStudentNames();break;
+                    case 0: canRun = false; break;
+                    case 1:
+                        cout << "In which order?\n"
+                                "1: Normal\n"
+                                "2: Reverse \n"
+                                "0: Return\n";
+                        while(!(cin >> n)) {
+                            cout << "Invalid input!\n\n";
+                            cin.clear();
+                            cin.ignore(INT_MAX, '\n');
+                            cout << "In which order?\n"
+                                    "1: Normal\n"
+                                    "2: Reverse \n"
+                                    "0: Return\n";
+                        }
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        switch(n){
+                            case 0: break;
+                            case 1:students.showAllStudentCodes();break;
+                            case 2:students.showAllStudentsCodesReverse();break;
+                            default: cout << "Invalid Input!\n"; break;
+                        }
+                        break;
+                    case 2:cout << "In which order?\n"
+                                   "1: Normal\n"
+                                   "2: Reverse \n"
+                                   "0: Return\n";
+                        while(!(cin >> n)) {
+                            cout << "Invalid input!\n\n";
+                            cin.clear();
+                            cin.ignore(INT_MAX, '\n');
+                            cout << "In which order?\n"
+                                    "1: Normal\n"
+                                    "2: Reverse \n"
+                                    "0: Return \n";
+                        }
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        switch(n){
+                            case 0: break;
+                            case 1:students.showAllStudentNames();break;
+                            case 2:students.showAllStudentsNamesReverse();break;
+                            default: cout << "Invalid Input!\n"; break;
+                        }
+                        break;
                     case 3:{
                         string uc,turma;
                         cout << "Input Uc:";
                         cin >> uc;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
                         cout<<"Input turma:";
                         cin>>turma;
                         cin.clear();
@@ -390,11 +456,24 @@ void menuAdm(BSTudents students, GestaoHor h){
                         cin >> year;
                         cin.clear();
                         cin.ignore(INT_MAX, '\n');
+                        if(year != '1' && year != '2' && year != '3'){
+                            cout << "Invalid year!\n";
+                            break;
+                        }
                         students.showAllStudentsinYear(year);
                         cout << "\n";
                         break;
                     }
                     case 7:{
+                        cout << "Input n: ";
+                        cin >> n;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        students.showStudentUCs(n);
+                        cout << "\n";
+                        break;
+                    }
+                    case 8:{
                         cout << "Input n: ";
                         cin >> n;
                         cin.clear();
@@ -407,23 +486,55 @@ void menuAdm(BSTudents students, GestaoHor h){
                 }
                 break;
             case 2:
-                h.showUCTandHorario();
+                cout << "1: Show every UC, Class and Schedule \n"
+                        "2: Show every UC in a year\n"
+                        "0: Return\n";
+                while(!(cin >> input)) {
+                    cout << "Invalid input!\n\n";
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "1: Show every UC, Class and Schedule \n"
+                            "2: Show every UC in a year\n"
+                            "0: Return\n";
+                }
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+                switch(input){
+                    case 0: break;
+                    case 1: h.showUCTandHorario(); break;
+                    case 2:{
+                        char year;
+                        cout << "Input year: (1,2,3,...) \n";
+                        cin >> year;
+                        cin.clear();
+                        cin.ignore(INT_MAX, '\n');
+                        if(year != '1' && year != '2' && year != '3'){ cout << "Invalid year!\n"; break;}
+                        h.showAllUCinYear(year);
+                        cout << "\n";
+                        break;
+                    }
+                        break;
+                }
                 break;
             case 3:
                 cout << "1: Students in an UC\n"
                         "2: Students in an UC/Class combo\n"
-                        "3: Students with more than n UCs";
+                        "3: Students with more than n UCs\n"
+                        "0: Return \n";
                 while(!(cin >> input)) {
                     cout << "Invalid input!\n\n";
                     cin.clear();
                     cin.ignore(INT_MAX, '\n');
                     cout << "1: Students in an UC\n"
                             "2: Students in an UC/Class combo\n"
-                            "3: Students with more than n UCs";
+                            "3: Students with more than n UCs \n"
+                            "0: Return \n";
                 }
                 cin.clear();
                 cin.ignore(INT_MAX, '\n');
                 switch(input) {
+                    case 0:
+                        break;
                     case 1: {
                         string uc;
                         cout << "Input UC: ";
@@ -474,6 +585,7 @@ void menuAdm(BSTudents students, GestaoHor h){
                     default: cout << "Invalid Input! \n"; break;
                 }
                 break;
+            default: cout << "Invalid input!\n"; break;
         }
     }
 }
@@ -534,7 +646,7 @@ int main() {
     GestaoHor h = GestaoHor();
     h.insertTurmas();
     h.insertSchedule();
-    //cout<<"Insert File name with extension:";
+    //cout<<"Insert student_classes File name with extension:";        <-Estes comentarios não são para apagar
     //string file;
     //cin>>file;
     string file="students_classes.csv";
@@ -543,7 +655,6 @@ int main() {
     queue<vector<string>> requests;
     queue<vector<string>> failedr;
     vector<string> temp;
-
     string str;
     int input1;
     bool canRun = true;
