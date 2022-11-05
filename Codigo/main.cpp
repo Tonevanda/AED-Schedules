@@ -21,8 +21,8 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 "4: Remove all UCs\n"
                 "5: Check schedule of an UC\n"
                 "6: Check full schedule\n"
-                "7: Check UC and respective classes\n"
-                "8: Show your Uc\n"
+                "7: Check UCs and respective classes\n"
+                "8: Show your UCs\n"
                 "0: Go back\n";
         while(!(cin >> input)){
             cout << "Invalid input!\n\n";
@@ -35,7 +35,8 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     "4: Remove all UCs\n"
                     "5: Check schedule of an UC\n"
                     "6: Check full schedule\n"
-                    "7: Check UC and respective classes\n"
+                    "7: Check UCs and respective classes\n"
+                    "8: Show your UCs\n"
                     "0: Go back\n";
         }
         switch(input){
@@ -48,7 +49,13 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cin>>str;
                 id = students.getStudentId(str);
                 if(id == 0){
-                    id = stoi(str);
+                    try{
+                        id = stoi(str);
+                    }
+                    catch(std::invalid_argument) {
+                        cout << "User not found!\n";
+                        break;
+                    }
                 }
                 if(!students.idValid(id)){
                     cout << "User not found!\n";
@@ -106,7 +113,13 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cin>>str;
                 id = students.getStudentId(str);
                 if(id == 0){
-                    id = stoi(str);
+                    try{
+                        id = stoi(str);
+                    }
+                    catch(std::invalid_argument) {
+                        cout << "User not found!\n";
+                        break;
+                    }
                 }
                 if(!students.idValid(id)){
                     cout << "User not found!\n";
@@ -174,7 +187,13 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cin>>str;
                 id = students.getStudentId(str);
                 if(id == 0){
-                    id = stoi(str);
+                    try{
+                        id = stoi(str);
+                    }
+                    catch(std::invalid_argument) {
+                        cout << "User not found!\n";
+                        break;
+                    }
                 }
                 if(!students.idValid(id)){
                     cout << "User not found!\n";
@@ -246,7 +265,13 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cin>>str;
                 id = students.getStudentId(str);
                 if(id == 0){
-                    id = stoi(str);
+                    try{
+                        id = stoi(str);
+                    }
+                    catch(std::invalid_argument) {
+                        cout << "User not found!\n";
+                        break;
+                    }
                 }
                 if(!students.idValid(id)){
                     cout << "User not found!\n";
@@ -265,7 +290,13 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cin>>str;
                 id = students.getStudentId(str);
                 if(id == 0){
-                    id = stoi(str);
+                    try{
+                        id = stoi(str);
+                    }
+                    catch(std::invalid_argument) {
+                        cout << "User not found!\n";
+                        break;
+                    }
                 }
                 if(!students.idValid(id)){
                     cout << "User not found!\n";
@@ -290,7 +321,13 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cin>>str;
                 id = students.getStudentId(str);
                 if(id == 0){
-                    id = stoi(str);
+                    try{
+                        id = stoi(str);
+                    }
+                    catch(std::invalid_argument) {
+                        cout << "User not found!\n";
+                        break;
+                    }
                 }
                 if(!students.idValid(id)){
                     cout << "User not found!\n";
@@ -301,6 +338,28 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
 
                 students.showStudentHorario(id, h.getHorarios());
                 break;
+            case 7:{
+                cout << "Insert your Student ID or Name:\n";
+                cin>>str;
+                id = students.getStudentId(str);
+                if(id == 0){
+                    try{
+                        id = stoi(str);
+                    }
+                    catch(std::invalid_argument) {
+                        cout << "User not found!\n";
+                        break;
+                    }
+                }
+                if(!students.idValid(id)){
+                    cout << "User not found!\n";
+                    break;
+                }
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+                students.showStudentUCTurma(id);
+                break;
+            }
             case 8:{
                 string n;
                 cout << "Input n: ";
@@ -311,6 +370,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                 cout << "\n";
                 break;
             }
+            default: cout << "Invalid input!\n"; break;
         }
     }
 }
@@ -353,8 +413,7 @@ void menuAdm(BSTudents students, GestaoHor h){
                         "4: Every student in an Uc\n"
                         "5: Every student in a Class \n"
                         "6: Every student in an year\n"
-
-                        "8: With more than n UCs\n"
+                        "7: With more than n UCs\n"
                         "0: Return \n";
                 while(!(cin >> input)){
                     cout << "Invalid input!\n\n";
@@ -367,7 +426,7 @@ void menuAdm(BSTudents students, GestaoHor h){
                            "4: Every student in an Uc\n"
                            "5: Every student in a Class\n"
                            "6: Every student in an year\n"
-                           "8: With more than n UCs\n"
+                           "7: With more than n UCs\n"
                            "0: Return \n";
                 }
                 cin.clear();

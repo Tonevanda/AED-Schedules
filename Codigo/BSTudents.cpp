@@ -240,7 +240,7 @@ void BSTudents::showStudentUCTurma(int id) {
     student = students.find(student);
     vector<UCTurma> UCT = student.getCourses();
     for (auto it: UCT) {
-        cout << it.getUC() << " " << it.getTurma() << " ";
+        cout << it.getUC() << " in class " << it.getTurma() << "\n";
     }
 }
 
@@ -251,7 +251,7 @@ void BSTudents::showStudentHorario(int id, BST<TurmaH> h){
     for (auto it: UCT) {
         TurmaH hor = TurmaH(it.getUC(), it.getTurma());
         TurmaH temp = h.find(hor);
-        cout << it.getUC() << ", " << it.getTurma() << ": \n";
+        cout << it.getUC() << " in class " << it.getTurma() << ": \n";
         temp.showHorario();
         cout << "\n";
     }
