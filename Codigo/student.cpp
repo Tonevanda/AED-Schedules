@@ -52,15 +52,6 @@ vector<UCTurma> Student::getCourses() const{
     return Courses;
 }
 
-void Student::showAllHorarios() {
-    for(auto it:Courses){
-        string uc = it.getUC();
-        string turma = it.getTurma();
-        TurmaH turmaH = TurmaH(uc,turma);
-        turmaH.showHorario();
-    }
-}
-
 bool Student::operator<(const Student &s2) const {
     return StudentCode < s2.StudentCode;
 }

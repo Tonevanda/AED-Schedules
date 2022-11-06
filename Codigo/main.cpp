@@ -572,7 +572,6 @@ void menuAdm(BSTudents students, GestaoHor h){
                         cout << "\n";
                         break;
                     }
-                        break;
                 }
                 break;
             case 3:
@@ -705,10 +704,9 @@ int main() {
     GestaoHor h = GestaoHor();
     h.insertTurmas();
     h.insertSchedule();
-    //cout<<"Insert student_classes File name with extension:";        <-Estes comentarios não são para apagar
-    //string file;
-    //cin>>file;
-    string file="students_classes.csv";
+    cout<<"Insert student_classes File name with extension:";
+    string file;
+    cin>>file;
     BSTudents students = BSTudents(); // inicializa BST de students
     students.insertStudents(&h,file); // insere todos os students
     queue<vector<string>> requests;
@@ -759,8 +757,3 @@ int main() {
 
     return 0;
 }
-
-/*Falta:
- * Ordenação de Listagens
- * debug
- * */

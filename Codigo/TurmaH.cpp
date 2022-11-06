@@ -3,7 +3,6 @@
 //
 
 #include "TurmaH.h"
-#include <Algorithm>
 
 TurmaH::TurmaH(std::string codUC, std::string codTurma) {
     this->codUC = codUC;

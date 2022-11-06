@@ -175,34 +175,6 @@ string BSTudents::getStudentName(int id) const {
     return students.find(student).getStudentName();
 }
 
-vector<UCTurma> BSTudents::getStudentUCTurma(int id) const {
-    Student student = Student(id, "");
-    student = students.find(student);
-    return student.getCourses();
-}
-
-string BSTudents::getStudentUCs(int id) const{
-    Student student = Student(id, "");
-    student = students.find(student);
-    vector<UCTurma> UCT = student.getCourses();
-    ostringstream out;
-    for(auto it:UCT){
-        out << it.getUC();
-    }
-    return out.str();
-}
-
-string BSTudents::getStudentUCTs(int id) const{
-    Student student = Student(id, "");
-    student = students.find(student);
-    vector<UCTurma> UCT = student.getCourses();
-    ostringstream out;
-    for(auto it:UCT){
-        out << it.getUC()<< "," << it.getTurma() << ",";;
-    }
-    return out.str();
-}
-
 void BSTudents::showStudentUCHor(int id, string ucCode, BST<TurmaH> h){
     Student student = Student(id, "");
     student = students.find(student);
@@ -223,16 +195,6 @@ void BSTudents::showStudentUCs(int id) {
     for (auto it: UCT) {
         cout << it.getUC()<<"\n";
     }
-}
-
-void BSTudents::showStudentClasses(int id) {
-    Student student = Student(id, "");
-    student = students.find(student);
-    vector<UCTurma> UCT = student.getCourses();
-    for (auto it: UCT) {
-        cout << it.getTurma()<<"\n";
-    }
-
 }
 
 void BSTudents::showStudentUCTurma(int id) {
@@ -383,18 +345,6 @@ void BSTudents::showAllStudentsNamesReverse() {
     }
     for(auto iter = sete.rbegin(); iter != sete.rend(); iter++){
         cout << "Student: " << iter->first << ", " << iter->second <<"\n";
-    }
-}
-
-void BSTudents::showAllStudents() {
-    BSTItrIn<Student> it = BSTItrIn<Student> (students);
-    while(!it.isAtEnd()){
-        int id = it.retrieve().getStudentCode();
-        vector<UCTurma> UCT = it.retrieve().getCourses();
-        cout << id << " "  << it.retrieve().getStudentName() << " ";
-        showStudentUCTurma(id);
-        cout << "\n";
-        it.advance();
     }
 }
 
