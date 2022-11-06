@@ -8,7 +8,7 @@
  * @param students
  * @param h
  */
-void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,queue<vector<string>> *failedr) {
+void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h) {
     bool canRun = true, changing = true;
     vector<string> temp;
     while(canRun) {
@@ -52,7 +52,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     try{
                         id = stoi(str);
                     }
-                    catch(std::invalid_argument) {
+                    catch(std::invalid_argument&) {
                         cout << "User not found!\n";
                         break;
                     }
@@ -116,7 +116,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     try{
                         id = stoi(str);
                     }
-                    catch(std::invalid_argument) {
+                    catch(std::invalid_argument&) {
                         cout << "User not found!\n";
                         break;
                     }
@@ -190,7 +190,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     try{
                         id = stoi(str);
                     }
-                    catch(std::invalid_argument) {
+                    catch(std::invalid_argument&) {
                         cout << "User not found!\n";
                         break;
                     }
@@ -268,7 +268,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     try{
                         id = stoi(str);
                     }
-                    catch(std::invalid_argument) {
+                    catch(std::invalid_argument&) {
                         cout << "User not found!\n";
                         break;
                     }
@@ -293,7 +293,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     try{
                         id = stoi(str);
                     }
-                    catch(std::invalid_argument) {
+                    catch(std::invalid_argument&) {
                         cout << "User not found!\n";
                         break;
                     }
@@ -324,7 +324,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     try{
                         id = stoi(str);
                     }
-                    catch(std::invalid_argument) {
+                    catch(std::invalid_argument&) {
                         cout << "User not found!\n";
                         break;
                     }
@@ -346,7 +346,7 @@ void menuUsr(queue<vector<string>> *requests, BSTudents students, GestaoHor h,qu
                     try{
                         id = stoi(str);
                     }
-                    catch(std::invalid_argument) {
+                    catch(std::invalid_argument&) {
                         cout << "User not found!\n";
                         break;
                     }
@@ -572,6 +572,7 @@ void menuAdm(BSTudents students, GestaoHor h){
                         cout << "\n";
                         break;
                     }
+                    default: cout << "Invalid input \n";break;
                 }
                 break;
             case 3:
@@ -655,7 +656,7 @@ void menuAdm(BSTudents students, GestaoHor h){
  * @param failedr
  */
 void processrequests(queue<vector<string>>*requests,BSTudents *students,GestaoHor *h,queue<vector<string>>*failedr){
-    int size=requests->size();
+    unsigned long size=requests->size();
     vector<string> temp;
     for(int it=0;it<size;it++){
         if(requests->front().front()=="removeUC"){
@@ -736,7 +737,7 @@ int main() {
                 canRun= false;
                 break;
             case 1:
-                menuUsr(&requests, students, h,&failedr);
+                menuUsr(&requests, students, h);
                 break;
             case 2:
                 menuAdm(students, h);

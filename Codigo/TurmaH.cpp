@@ -2,6 +2,7 @@
 // Created by tomas on 30/10/2022.
 //
 
+#include <algorithm>
 #include "TurmaH.h"
 
 TurmaH::TurmaH(std::string codUC, std::string codTurma) {
