@@ -1,3 +1,0 @@
-D:/AED/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/Codigo.dir
-D:/AED/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/AED/TrabalhoAED/Codigo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
